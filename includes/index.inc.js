@@ -14,6 +14,7 @@ const diamondspreading = document.getElementById("diamondspreading").innerHTML
 const afk = document.getElementById("afk").innerHTML
 const fuel = document.getElementById("fuel").innerHTML
 const url = "http://infagsuso.bplaced.net/project/index.php"
+const data = document.querySelector(".data")
 
 console.log(amount)
 console.log(level)
@@ -21,15 +22,21 @@ console.log(afk)
 console.log(fuel)
 console.log(diamondspreading)
 
-function httpGet(theUrl) {
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
+console.log(data.innerHTML)
 
-try {
-    console.log(httpGet(url))
-} catch(exception) {
-    console.log(exception.code)
-}
+var prices_str = data.innerHTML
+
+var prices_str_arr = prices_str.split("\n")
+
+console.log(prices_str_arr)
+
+var prices = Array()
+
+prices_str_arr.forEach(function (item, index) {
+    if (!(item.indexOf("<br>") >= 0)) {
+        console.log(item)
+        prices.push(item)
+    }
+})
+
+prices

@@ -63,7 +63,13 @@
             <div class="rank"><p class="settings-text">Fifth:</p><h3 class="fifth-name">none</h3><p class="settings-text"> with:</p><h3 class="fifth-value">0</h3></div>
             <div class="rank"><p>-</p></div>
         </div>
+        
+        <?php
+        $data = file("http://infagsuso.bplaced.net/project/index.php");
+        $data_str = implode('', $data);
+        echo "<div class='data'>$data_str</div>";
+        ?>
 
-        <script src="includes/index.inc.js"></script>
+        <script type="text/javascript" src="includes/index.inc.js"></script>
     </body>
 </html>
