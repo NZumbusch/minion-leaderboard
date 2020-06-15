@@ -14,7 +14,7 @@
     width: 100%;
 }
 
-.settings {
+.settings-link {
     background-color: rgb(129, 129, 129);
 }
 
@@ -35,3 +35,20 @@ img {
     padding: 10px;
     color: white;
 }
+
+.setting {
+    color: black;
+    font-size: 23px;
+    text-align: center;
+    background-color: rgb(158, 158, 196);
+}
+
+.setting > p {
+    display: inline-block
+}
+
+.setting > h3 {
+    display: inline-block;
+    padding: 0px 5px;
+}
+

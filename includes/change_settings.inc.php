@@ -24,8 +24,13 @@ if (isset($_GET["afk"])) {
 
 if (isset($_GET["diamondspreading"])) {
     if ($_GET["diamondspreading"] == "on") {
-        $_SESSION["diamondspreading"] = true;
+        $_SESSION["diamondspreading"] = "true";
     } else {
-        $_SESSION["diamondspreading"] = false;
+        $_SESSION["diamondspreading"] = "false";
     }
 }
+
+echo "Heading";
+
+header("LOCATION: ../index.php");
+exit();
