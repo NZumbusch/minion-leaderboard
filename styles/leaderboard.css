@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    color: black;
+    display: flex;
+    justify-content: center;
+    margin: auto auto;
+
+}
+
+.leaderboard {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.leaderboard > h1{
+    text-align: center;
+    color: black;
+    font-size: 30px;
+}
+
+.leaderboard > h2{
+    text-align: center;
+    color: black;
+    font-size: 30px;
+}
+
+.leaderboard > h3{
+    text-align: center;
+    color: black;
+    font-size: 30px;
+}
