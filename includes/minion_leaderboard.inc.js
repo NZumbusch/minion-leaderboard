@@ -63,6 +63,21 @@ const fuel = document.getElementById("fuel").innerHTML
 //const url = "http://infagsuso.bplaced.net/project/index.php"
 const data = document.querySelector(".data")
 
+function format (n) {
+    return n.toFixed(1).replace('.', ',').replace(/\d{3}(?=(\d{3})*,)/g, function (s) {
+      return '.' + s
+    })
+}
+
+document.getElementById('search-entered').onkeypress = function(e){
+    if (!e) e = window.event;
+    var keyCode = e.keyCode || e.which;
+    if (keyCode == '13'){
+        var entered = entered = search_entered.value
+        get_minion_search(entered)
+    }
+}
+
 var minion_list = []
 
 for (var key in minions) {
@@ -161,11 +176,11 @@ document.getElementById("second-name").innerHTML = minion_leaderboard[1][0]
 document.getElementById("third-name").innerHTML = minion_leaderboard[2][0]
 document.getElementById("forth-name").innerHTML = minion_leaderboard[3][0]
 document.getElementById("fifth-name").innerHTML = minion_leaderboard[4][0]
-document.getElementById("first-value").innerHTML = minion_leaderboard[0][1]
-document.getElementById("second-value").innerHTML = minion_leaderboard[1][1]
-document.getElementById("third-value").innerHTML = minion_leaderboard[2][1]
-document.getElementById("forth-value").innerHTML = minion_leaderboard[3][1]
-document.getElementById("fifth-value").innerHTML = minion_leaderboard[4][1]
+document.getElementById("first-value").innerHTML = format(minion_leaderboard[0][1])
+document.getElementById("second-value").innerHTML = format(minion_leaderboard[1][1])
+document.getElementById("third-value").innerHTML = format(minion_leaderboard[2][1])
+document.getElementById("forth-value").innerHTML = format(minion_leaderboard[3][1])
+document.getElementById("fifth-value").innerHTML = format(minion_leaderboard[4][1])
 
 document.getElementById("first-name").addEventListener(type="click", function () {
     console.log(this.innerHTML)
@@ -217,8 +232,6 @@ function clicked (clicked) {
     get_minion_search(minion_leaderboard[clicked][0])
 }
 
-
-
 function get_minion_search (inserted) {
     try {
         entered = parseInt(inserted)
@@ -227,7 +240,7 @@ function get_minion_search (inserted) {
         entered = inserted
         minion_leaderboard.forEach(function (element, index) {
             if (element[0].includes(entered)) {
-                alert("With your settings the " + element[0] + " minion makes " + element[1] + " coins per day and has the position " + (index + 1) + ".")
+                alert("With your settings the " + element[0] + " minion makes " + format(element[1]) + " coins per day and has the position " + (index + 1) + ".")
         }
         })
     }
