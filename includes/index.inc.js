@@ -182,7 +182,7 @@ console.log(minion_leaderboard)
 search_button.addEventListener(type="click", function () {
     entered = search_entered.value
     minion_leaderboard.forEach(function (element, index) {
-        if (element.indexOf(entered) != -1) {
+        if (element.includes(entered)) {
             alert("The " + element[0] + " minion makes with your settings " + element[1] + " per day and has the position " + (index + 1) + ".")
         }
     })
