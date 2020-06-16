@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-
 <?php 
+    session_start();
     if (!isset($_SESSION["amount"])) {
         $_SESSION["amount"] = 24;
     }
@@ -20,9 +19,9 @@
     if (!isset($_SESSION["diamondspreading"])) {
         $_SESSION["diamondspreading"] = "false";
     }
-
-    session_start()
 ?>
+
+<!DOCTYPE html>
 
 <html>
     <head>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,16 +19,16 @@
         <form action="includes/change_settings.inc.php" id="settings" method="post">
             <h1>Minion Leaderboard Settings: </h1>
             <label for="amount" form="settings">Minionamount </label>
-            <input type="number" name="amount" id="amount" min="1" max="24" value="1" required>
+            <?php echo '<input type="number" name="amount" id="amount" min="1" max="24" value='.$_SESSION["amount"].' required>'?>
             <label for="level" form="settings">Minionlevel </label>
-            <input type="number" name=level id="level" min="1" max="11" value="1" required>
+            <?php echo '<input type="number" name="level" id="level" min="1" max="11" value='.$_SESSION["level"].' required>'?>
             <label for="fuel" form="settings">Fuel in Percent </label>
-            <input type="number" name="fuel" id="fuel" min="0" max="400" value="0" required>
+            <?php echo '<input type="number" name="fuel" id="fuel" min="1" max="400" value='.$_SESSION["fuel"].' required>'?>
             <label for="afk" form="settings">Percent of the time you are on your island? </label>
-            <input type="number" name="afk" id="afk" min="0" max="100" value="0" required>
+            <?php echo '<input type="number" name="afk" id="afk" min="0" max="100" value='.$_SESSION["afk"].' required>'?>
             <label for="diamondspreading" form="settings">Do you use diamondspreadings? </label>
             <input type="checkbox" name="diamondspreading" id="diamondspreading">
-            <input type="submit" name="submit" value="Submit" id="submit">  
+            <input type="submit" name="submit" value="Submit" id="submit"> 
         </form>
     </body>
 </html>
