@@ -18,7 +18,7 @@ session_start();
         
         <a class="home" href="index.php"><img src="src/img/home-solid.svg" alt="home"></img></a>
 
-        <form action="includes/change_settings.inc.php" id="settings" method="post">
+        <form action="includes/change_settings.inc.php" id="settings" method="get">
             <h1>Minion Leaderboard Settings: </h1>
             <label class="label" for="amount" form="settings">Minionamount: </label>
             <?php  echo '<input class="input" type="number" name="amount" id="amount" min="1" max="24" value='.$_SESSION["amount"].' required>'?>
@@ -30,12 +30,13 @@ session_start();
             <?php echo '<input class="input" type="number" name="afk" id="afk" min="0" max="100" value='.$_SESSION["afk"].' required>'?>
             <label class="label" for="diamondspreading" form="settings">Are Diamondspreadings used: </label>
             <?php 
-                if ($_SESSION["diamondspreading"] == true) {
-                    echo '<input class="checkbox" type="checkbox" name="diamondspreading" id="diamondspreading" checked="checked">';
+                if (!($_SESSION["diamondspreading"] == "false")) {
+                    echo '<input class="checkbox" type="checkbox" name="diamondspreading" id="diamondspreading" checked value="on">';
                 } else {
                     echo '<input class="checkbox" type="checkbox" name="diamondspreading" id="diamondspreading">';
                 }
             ?>
+
             
             <input class="submit" type="submit" name="submit" value="Submit" id="submit"> 
         </form>

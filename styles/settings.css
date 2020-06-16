@@ -57,6 +57,7 @@ form > h1 {
 }
 
 .submit {
+    height: 2vw;
     width: 70px;
     margin-top: 0.4vw;
     border-radius: 0.5vw;

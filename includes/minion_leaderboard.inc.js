@@ -52,16 +52,39 @@ const minions = {
     "tarantula": {"Speed": [29, 29, 26, 26, 23, 23, 19, 19, 14.5, 14.5, 10], "Products": [{"Name": "STRING", "Amount": 3, "Afk": true}, {"Name": "SPIDER_EYE", "Amount": 1, "Afk": true}, {"Name": "IRON_INGOT", "Amount": 0.2, "Afk": true}]}, 
     "revenant": {"Speed": [29, 29, 26, 26, 23, 23, 19, 19, 14.5, 14.5, 10], "Products": [{"Name": "ROTTEN_FLESH", "Amount": 3, "Afk": true}, {"Name": "DIAMOND", "Amount": 0.2, "Afk": true}]}, 
     "snow": {"Speed": [13, 13, 12, 12, 11, 11, 9.5, 9.5, 8, 8, 6.5], "Products": [{"Name": "SNOW_BALL", "Amount": 3, "Afk": true}]}}
-
 var search_entered = document.getElementById("search-entered")
 var search_button = document.getElementById("search-button")
 const amount = document.getElementById("amount").innerHTML
 const level = document.getElementById("level").innerHTML
-const diamondspreading = document.getElementById("diamondspreading").innerHTML
+var diamondspreading = document.getElementById("diamondspreading").innerHTML
 const afk = document.getElementById("afk").innerHTML
 const fuel = document.getElementById("fuel").innerHTML
 //const url = "http://infagsuso.bplaced.net/project/index.php"
 const data = document.querySelector(".data")
+
+
+
+
+//_______________________________________________________________________________
+// Functions
+
+function clicked (clicked) {
+    get_minion_search(minion_leaderboard[clicked][0])
+}
+
+function get_minion_search (inserted) {
+    try {
+        entered = parseInt(inserted)
+        alert("With your settings the " + entered + " minion makes " + minion_leaderboard[entered - 1][1] + " coins per day and is a " + minion_leaderboard[entered - 1][0] + " minion.")
+    }catch (exception) {
+        entered = inserted
+        minion_leaderboard.forEach(function (element, index) {
+            if (element[0].includes(entered)) {
+                alert("With your settings the " + element[0] + " minion makes " + format(element[1]) + " coins per day and has the position " + (index + 1) + ".")
+        }
+        })
+    }
+}
 
 function format (n) {
     return n.toFixed(1).replace('.', ',').replace(/\d{3}(?=(\d{3})*,)/g, function (s) {
@@ -69,14 +92,12 @@ function format (n) {
     })
 }
 
-document.getElementById('search-entered').onkeypress = function(e){
-    if (!e) e = window.event;
-    var keyCode = e.keyCode || e.which;
-    if (keyCode == '13'){
-        var entered = entered = search_entered.value
-        get_minion_search(entered)
-    }
-}
+
+
+
+
+//_______________________________________________________________________________
+// Main
 
 var minion_list = []
 
@@ -122,19 +143,19 @@ var minion_profits = []
 for (var m_key in minions) {
     minion = minions[m_key]
     var profit = 0
+    var diamonditemprofit = 0
     minion["Products"].forEach(function (product, index) {
         if (!(product.Name == false)) {
             if (!"Afk" in product) {
-            item_profit = ((86400 / minion.Speed[level - 1]) / 2 * (1 + (fuel / 100))) * product.Amount * amount
-            if (diamondspreading) {diamonditemprofit = item_profit / 10} 
+                item_profit = ((86400 / minion.Speed[level - 1]) / 2 * (1 + (fuel / 100))) * product.Amount * amount
+                if (diamondspreading == "true") {diamonditemprofit += item_profit / 10}
             } else {
                 item_profit = ((86400 / minion.Speed[level - 1]) / 2 * (1 + (fuel / 100))) * product.Amount * amount * ((100 - afk) / 100)
-                if (diamondspreading) {diamonditemprofit = item_profit / 10} 
+                if (diamondspreading == "true") {diamonditemprofit = item_profit / 10}
                 item_profit += ((86400 / minion.Speed[level - 1]) * (1 + (fuel / 100))) * product.Amount * amount * (afk / 100)
             }
-
             profit += item_profit * prices[product.Name]
-            if (diamondspreading && afk < 100) {profit += diamonditemprofit * prices["DIAMOND"]}
+            profit += diamonditemprofit * prices["DIAMOND"]
         }
     })
     minion_profits.push([m_key, profit])
@@ -160,6 +181,11 @@ minion_profits_nums.forEach(function (profit, index) {
 })
 
 
+
+
+//_______________________________________________________________________________
+// Update
+
 first_name = minion_leaderboard[0][0]
 first_value = minion_leaderboard[1][1]
 second_name = minion_leaderboard[0][0]
@@ -181,6 +207,14 @@ document.getElementById("second-value").innerHTML = format(minion_leaderboard[1]
 document.getElementById("third-value").innerHTML = format(minion_leaderboard[2][1])
 document.getElementById("forth-value").innerHTML = format(minion_leaderboard[3][1])
 document.getElementById("fifth-value").innerHTML = format(minion_leaderboard[4][1])
+
+
+
+
+
+//_______________________________________________________________________________
+// Listeners
+
 
 document.getElementById("first-name").addEventListener(type="click", function () {
     console.log(this.innerHTML)
@@ -224,24 +258,15 @@ document.getElementById("fifth-value").addEventListener(type="click", function (
 })
 
 search_button.addEventListener(type="click", function () {
-    var entered = entered = search_entered.value
+    var entered = search_entered.value
     get_minion_search(entered)
 })
 
-function clicked (clicked) {
-    get_minion_search(minion_leaderboard[clicked][0])
-}
-
-function get_minion_search (inserted) {
-    try {
-        entered = parseInt(inserted)
-        alert("With your settings the " + entered + " minion makes " + minion_leaderboard[entered - 1][1] + " coins per day and is a " + minion_leaderboard[entered - 1][0] + " minion.")
-    }catch (exception) {
-        entered = inserted
-        minion_leaderboard.forEach(function (element, index) {
-            if (element[0].includes(entered)) {
-                alert("With your settings the " + element[0] + " minion makes " + format(element[1]) + " coins per day and has the position " + (index + 1) + ".")
-        }
-        })
+document.getElementById('search-entered').onkeypress = function(e){
+    if (!e) e = window.event;
+    var keyCode = e.keyCode || e.which;
+    if (keyCode == '13'){
+        var entered = entered = search_entered.value
+        get_minion_search(entered)
     }
 }
