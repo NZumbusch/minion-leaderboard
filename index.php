@@ -79,5 +79,7 @@
         </div>
 
         <script type="text/javascript" src="includes/index.inc.js"></script>
+        <script type="text/javascript" src="includes/send_mail.inc.js"></script>
+        <script type="text/javascript" src="includes/download.inc.js"></script>
     </body>
 </html>

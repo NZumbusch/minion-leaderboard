@@ -1,6 +1,4 @@
-<!DOCTYPE html>
 <?php
-
 session_start();
 
 if (!isset($_POST["submit"])) {
@@ -20,7 +18,7 @@ if (isset($_POST["fuel"])) {
     $_SESSION["fuel"] = $_POST["fuel"];
 }
 
-if (isset($$_POST["afk"])) {
+if (isset($_POST["afk"])) {
     $_SESSION["afk"] = $_POST["afk"];
 }
 

@@ -6,6 +6,11 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 
+body {
+    background-image: url("../src/img/Mountain-2.jpeg");
+    background-size:cover;
+}
+
 .container {
     background-color: rgb(129, 129, 129);
     display: flex;
