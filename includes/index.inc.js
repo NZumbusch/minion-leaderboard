@@ -1,4 +1,4 @@
-var minions = {
+const minions = {
     "wheat": {"Speed": [15, 15, 13, 13, 11, 11, 10, 10, 9, 9, 8], "Products": [{"Name": "WHEAT", "Amount": 1}, {"Name": "SEEDS", "Amount": 1}]}, 
     "potato": {"Speed": [20, 20, 18, 18, 16, 16, 14, 14, 12, 12, 10], "Products": [{"Name": "POTATO_ITEM", "Amount": 1}]}, 
     "carrot": {"Speed": [20, 20, 18, 18, 16, 16, 14, 14, 12, 12, 10], "Products": [{"Name": "CARROT_ITEM", "Amount": 1}]}, 
@@ -53,24 +53,21 @@ var minions = {
     "revenant": {"Speed": [29, 29, 26, 26, 23, 23, 19, 19, 14.5, 14.5, 10], "Products": [{"Name": "ROTTEN_FLESH", "Amount": 3, "Afk": true}, {"Name": "DIAMOND", "Amount": 0.2, "Afk": true}]}, 
     "snow": {"Speed": [13, 13, 12, 12, 11, 11, 9.5, 9.5, 8, 8, 6.5], "Products": [{"Name": "SNOW_BALL", "Amount": 3, "Afk": true}]}}
 
-
-var first_name = document.querySelector(".first-name")
-var second_name = document.querySelector(".second-name")
-var third_name = document.querySelector(".third-name")
-var forth_name = document.querySelector(".forth-name")
-var fifth_name = document.querySelector(".fifth-name")
-var first_value = document.querySelector(".first-value")
-var second_value = document.querySelector(".second-value")
-var third_value = document.querySelector(".third-value")
-var forth_value = document.querySelector(".forth-value")
-var fifth_value = document.querySelector(".fifth-value")
+var search_entered = document.getElementById("search-entered")
+var search_button = document.getElementById("search-button")
 const amount = document.getElementById("amount").innerHTML
 const level = document.getElementById("level").innerHTML
 const diamondspreading = document.getElementById("diamondspreading").innerHTML
 const afk = document.getElementById("afk").innerHTML
 const fuel = document.getElementById("fuel").innerHTML
-const url = "http://infagsuso.bplaced.net/project/index.php"
+//const url = "http://infagsuso.bplaced.net/project/index.php"
 const data = document.querySelector(".data")
+
+var minion_list = []
+
+for (var key in minions) {
+    minion_list.push(key)
+}
 
 console.log(amount)
 console.log(level)
@@ -103,11 +100,9 @@ prices_arr.shift()
 
 prices_arr.forEach(function (item, index) {
     if (counter == false) {
-        console.log(item)
         counter = true
         prices[item.replace("[", "").replace("]", "")] = 1
     } else {
-        console.log(item)
         counter = false
         try {
             prices[(prices_arr[index - 1]).replace("[", "").replace("]", "")] = parseInt(item.replace("[", "").replace("]", ""), 10)
@@ -117,4 +112,78 @@ prices_arr.forEach(function (item, index) {
     }
 })
 
-console.log(prices)
+var minion_profits = []
+
+for (var m_key in minions) {
+    minion = minions[m_key]
+    var profit = 0
+    minion["Products"].forEach(function (product, index) {
+        if (!(product.Name == false)) {
+            if (!"Afk" in product) {
+            item_profit = ((86400 / minion.Speed[level - 1]) / 2 * (1 + (fuel / 100))) * product.Amount * amount
+            if (diamondspreading) {diamonditemprofit = item_profit / 10} 
+            } else {
+                item_profit = ((86400 / minion.Speed[level - 1]) / 2 * (1 + (fuel / 100))) * product.Amount * amount * ((100 - afk) / 100)
+                if (diamondspreading) {diamonditemprofit = item_profit / 10} 
+                item_profit += ((86400 / minion.Speed[level - 1]) * (1 + (fuel / 100))) * product.Amount * amount * (afk / 100)
+            }
+
+            profit += item_profit * prices[product.Name]
+            if (diamondspreading && afk < 100) {profit += diamonditemprofit * prices["DIAMOND"]}
+        }
+    })
+    minion_profits.push([m_key, profit])
+}
+
+var minion_profit_index = {}
+
+var minion_profits_nums = []
+
+minion_profits.forEach(function (minion, index) {
+    minion_profits_nums.push(minion[1])
+    minion_profit_index[minion[1]] = minion[0]
+})
+
+minion_profits_nums.sort(function(a, b){return a - b})
+
+minion_profits_nums.reverse()
+
+var minion_leaderboard = []
+
+minion_profits_nums.forEach(function (profit, index) {
+    minion_leaderboard.push([minion_profit_index[profit], Math.round(profit)])
+})
+
+
+first_name = minion_leaderboard[0][0]
+first_value = minion_leaderboard[1][1]
+second_name = minion_leaderboard[0][0]
+second_value = minion_leaderboard[2][1]
+third_name = minion_leaderboard[0][0]
+third_value = minion_leaderboard[3][1]
+forth_name = minion_leaderboard[0][0]
+forth_value = minion_leaderboard[4][1]
+fifth_name = minion_leaderboard[0][0]
+fifth_value = minion_leaderboard[5][1]
+
+document.getElementById("first-name").innerHTML = minion_leaderboard[0][0]
+document.getElementById("second-name").innerHTML = minion_leaderboard[1][0]
+document.getElementById("third-name").innerHTML = minion_leaderboard[2][0]
+document.getElementById("forth-name").innerHTML = minion_leaderboard[3][0]
+document.getElementById("fifth-name").innerHTML = minion_leaderboard[4][0]
+document.getElementById("first-value").innerHTML = minion_leaderboard[0][1]
+document.getElementById("second-value").innerHTML = minion_leaderboard[1][1]
+document.getElementById("third-value").innerHTML = minion_leaderboard[2][1]
+document.getElementById("forth-value").innerHTML = minion_leaderboard[3][1]
+document.getElementById("fifth-value").innerHTML = minion_leaderboard[4][1]
+
+console.log(minion_leaderboard)
+
+search_button.addEventListener(type="click", function () {
+    entered = search_entered.value
+    minion_leaderboard.forEach(function (element, index) {
+        if (element.indexOf(entered) != -1) {
+            alert("The " + element[0] + " minion makes with your settings " + element[1] + " per day and has the position " + (index + 1) + ".")
+        }
+    })
+}) 

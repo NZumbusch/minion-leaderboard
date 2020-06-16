@@ -2,11 +2,11 @@
 
 <?php 
     if (!isset($_SESSION["amount"])) {
-        $_SESSION["amount"] = 1;
+        $_SESSION["amount"] = 24;
     }
 
     if (!isset($_SESSION["level"])) {
-        $_SESSION["level"] = 1;
+        $_SESSION["level"] = 5;
     }
 
     if (!isset($_SESSION["fuel"])) {
@@ -20,6 +20,8 @@
     if (!isset($_SESSION["diamondspreading"])) {
         $_SESSION["diamondspreading"] = "false";
     }
+
+    session_start()
 ?>
 
 <html>
@@ -56,11 +58,11 @@
 
         <div id="leaderboard">
             <div class="rank"><p>-</p></div>
-            <div class="rank"><p class="settings-text">First:</p><h3 class="first-name">none</h3><p class="settings-text"> with:</p><h3 class="first-value">0</h3></div>
-            <div class="rank"><p class="settings-text">Second:</p><h3 class="second-name">none</h3><p class="settings-text"> with:</p><h3 class="second-value">0</h3></div>
-            <div class="rank"><p class="settings-text">Third:</p><h3 class="third-name">none</h3><p class="settings-text"> with:</p><h3 class="third-value">0</h3></div>
-            <div class="rank"><p class="settings-text">Forth:</p><h3 class="forth-name">none</h3><p class="settings-text"> with:</p><h3 class="forth-value">0</h3></div>
-            <div class="rank"><p class="settings-text">Fifth:</p><h3 class="fifth-name">none</h3><p class="settings-text"> with:</p><h3 class="fifth-value">0</h3></div>
+            <div class="rank"><p class="settings-text">First:</p><h3 id="first-name">none</h3><p class="settings-text"> with:</p><h3 id="first-value">0</h3></div>
+            <div class="rank"><p class="settings-text">Second:</p><h3 id="second-name">none</h3><p class="settings-text"> with:</p><h3 id="second-value">0</h3></div>
+            <div class="rank"><p class="settings-text">Third:</p><h3 id="third-name">none</h3><p class="settings-text"> with:</p><h3 id="third-value">0</h3></div>
+            <div class="rank"><p class="settings-text">Forth:</p><h3 id="forth-name">none</h3><p class="settings-text"> with:</p><h3 id="forth-value">0</h3></div>
+            <div class="rank"><p class="settings-text">Fifth:</p><h3 id="fifth-name">none</h3><p class="settings-text"> with:</p><h3 id="fifth-value">0</h3></div>
             <div class="rank"><p>-</p></div>
         </div>
         
@@ -69,6 +71,13 @@
         $data_str = implode('', $data);
         echo "<div class='data'>$data_str</div>";
         ?>
+
+        <div>
+            <form action="" class="search">
+                <input type="text" name="search-entered" id="search-entered" placeholder="What minion do you want to search?">
+                <input type="button" name="search-button" id="search-button" value="Search">
+            </form>
+        </div>
 
         <script type="text/javascript" src="includes/index.inc.js"></script>
     </body>

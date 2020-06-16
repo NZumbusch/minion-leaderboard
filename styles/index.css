@@ -54,6 +54,10 @@ img {
 
 #leaderboard {
     margin-top: 10px;
+    margin: 0 auto;
+    width: 700px;
+    padding: 10px 10px;
+    background-color: rgb(163, 240, 175);
 }
 
 .rank {
@@ -74,4 +78,23 @@ img {
 
 .data {
     font-size: 0px;
+}
+
+.search {
+    background-color: gray;
+    color: black;
+    text-align: center;
+    width: 700px;
+    margin: 0 auto;
+    padding: 10px 10px;
+    border-radius: 0px 0px 10px 10px ;
+}
+
+#settings {
+    background-color: rgb(158, 158, 196);
+    margin: 0 auto;
+    width: 700px;
+    padding: 10px 10px;
+    border-radius: 10px 10px 0px 0px;
+    margin-top: 130px;
 }
