@@ -69,25 +69,15 @@ for (var key in minions) {
     minion_list.push(key)
 }
 
-console.log(amount)
-console.log(level)
-console.log(afk)
-console.log(fuel)
-console.log(diamondspreading)
-
-console.log(data.innerHTML)
-
 var prices_str = data.innerHTML
 
 var prices_str_arr = prices_str.split("\n")
 
-console.log(prices_str_arr)
 
 var prices_arr = Array()
 
 prices_str_arr.forEach(function (item, index) {
     if (!(item.indexOf("<br>") >= 0)) {
-        console.log(item)
         prices_arr.push(item)
     }
 })
@@ -177,13 +167,68 @@ document.getElementById("third-value").innerHTML = minion_leaderboard[2][1]
 document.getElementById("forth-value").innerHTML = minion_leaderboard[3][1]
 document.getElementById("fifth-value").innerHTML = minion_leaderboard[4][1]
 
-console.log(minion_leaderboard)
+document.getElementById("first-name").addEventListener(type="click", function () {
+    console.log(this.innerHTML)
+    get_minion_search(this.innerHTML)
+})
+document.getElementById("second-name").addEventListener(type="click", function () {
+    console.log(this.innerHTML)
+    get_minion_search(this.innerHTML)
+})
+document.getElementById("third-name").addEventListener(type="click", function () {
+    console.log(this.innerHTML)
+    get_minion_search(this.innerHTML)
+})
+document.getElementById("forth-name").addEventListener(type="click", function () {
+    console.log(this.innerHTML)
+    get_minion_search(this.innerHTML)
+})
+document.getElementById("fifth-name").addEventListener(type="click", function () {
+    console.log(this.innerHTML)
+    get_minion_search(this.innerHTML)
+})
+document.getElementById("first-value").addEventListener(type="click", function () {
+    console.log("1")
+    get_minion_search(minion_leaderboard[0][0])
+})
+document.getElementById("second-value").addEventListener(type="click", function () {
+    console.log("2")
+    get_minion_search(minion_leaderboard[1][0])
+})
+document.getElementById("third-value").addEventListener(type="click", function () {
+    console.log("3")
+    get_minion_search(minion_leaderboard[2][0])
+})
+document.getElementById("forth-value").addEventListener(type="click", function () {
+    console.log("4")
+    get_minion_search(minion_leaderboard[3][0])
+})
+document.getElementById("fifth-value").addEventListener(type="click", function () {
+    console.log("5")
+    get_minion_search(minion_leaderboard[4][0])
+})
 
 search_button.addEventListener(type="click", function () {
-    entered = search_entered.value
-    minion_leaderboard.forEach(function (element, index) {
-        if (element.includes(entered)) {
-            alert("The " + element[0] + " minion makes with your settings " + element[1] + " per day and has the position " + (index + 1) + ".")
+    var entered = entered = search_entered.value
+    get_minion_search(entered)
+})
+
+function clicked (clicked) {
+    get_minion_search(minion_leaderboard[clicked][0])
+}
+
+
+
+function get_minion_search (inserted) {
+    try {
+        entered = parseInt(inserted)
+        alert("With your settings the " + entered + " minion makes " + minion_leaderboard[entered - 1][1] + " coins per day and is a " + minion_leaderboard[entered - 1][0] + " minion.")
+    }catch (exception) {
+        entered = inserted
+        minion_leaderboard.forEach(function (element, index) {
+            if (element[0].includes(entered)) {
+                alert("With your settings the " + element[0] + " minion makes " + element[1] + " coins per day and has the position " + (index + 1) + ".")
         }
-    })
-}) 
+        })
+    }
+}

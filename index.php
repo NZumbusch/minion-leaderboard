@@ -1,5 +1,6 @@
 <?php 
     session_start();
+
     if (!isset($_SESSION["amount"])) {
         $_SESSION["amount"] = 24;
     }
@@ -57,11 +58,11 @@
 
         <div id="leaderboard">
             <div class="rank"><p>-</p></div>
-            <div class="rank"><p class="settings-text">First:</p><h3 id="first-name">none</h3><p class="settings-text"> with:</p><h3 id="first-value">0</h3><p class="settings-text"> coins.</p></div>
-            <div class="rank"><p class="settings-text">Second:</p><h3 id="second-name">none</h3><p class="settings-text"> with:</p><h3 id="second-value">0</h3><p class="settings-text"> coins.</p></div>
-            <div class="rank"><p class="settings-text">Third:</p><h3 id="third-name">none</h3><p class="settings-text"> with:</p><h3 id="third-value">0</h3><p class="settings-text"> coins.</p></div>
-            <div class="rank"><p class="settings-text">Forth:</p><h3 id="forth-name">none</h3><p class="settings-text"> with:</p><h3 id="forth-value">0</h3><p class="settings-text"> coins.</p></div>
-            <div class="rank"><p class="settings-text">Fifth:</p><h3 id="fifth-name">none</h3><p class="settings-text"> with:</p><h3 id="fifth-value">0</h3><p class="settings-text"> coins.</p></div>
+            <div class="rank"><p class="settings-text">First:</p><h3 class="js-input" id="first-name">none</h3><p class="settings-text"> with:</p><h3 class="js-input" id="first-value">0</h3><p class="settings-text"> coins.</p></div>
+            <div class="rank"><p class="settings-text">Second:</p><h3 class="js-input" id="second-name">none</h3><p class="settings-text"> with:</p><h3 class="js-input" id="second-value">0</h3><p class="settings-text"> coins.</p></div>
+            <div class="rank"><p class="settings-text">Third:</p><h3 class="js-input" id="third-name">none</h3><p class="settings-text"> with:</p><h3 class="js-input" id="third-value">0</h3><p class="settings-text"> coins.</p></div>
+            <div class="rank"><p class="settings-text">Forth:</p><h3 class="js-input" id="forth-name">none</h3><p class="settings-text"> with:</p><h3 class="js-input" id="forth-value">0</h3><p class="settings-text"> coins.</p></div>
+            <div class="rank"><p class="settings-text">Fifth:</p><h3 class="js-input" id="fifth-name">none</h3><p class="settings-text"> with:</p><h3 class="js-input" id="fifth-value">0</h3><p class="settings-text"> coins.</p></div>
             <div class="rank"><p>-</p></div>
         </div>
         
@@ -78,8 +79,6 @@
             </form>
         </div>
 
-        <script type="text/javascript" src="includes/index.inc.js"></script>
-        <script type="text/javascript" src="includes/send_mail.inc.js"></script>
-        <script type="text/javascript" src="includes/download.inc.js"></script>
+        <script type="text/javascript" src="includes/minion_leaderboard.inc.js"></script>
     </body>
 </html>

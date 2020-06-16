@@ -19,8 +19,8 @@ body {
     flex-direction: row;
     justify-content: space-between;
     width: 90%;
-    margin: 0.5vw auto 0px auto;
-    padding: 0.5vw;
+    margin: 0.4vw auto 0px auto;
+    padding: 0.4vw;
     border-radius: 0.6vw;
 }
 
@@ -62,7 +62,7 @@ body {
 }
 
 #leaderboard {
-    margin-top: 10px;
+    margin-top: 5px;
     margin: 0 auto;
     width: 50%;
     padding: 10px 10px;
@@ -128,6 +128,10 @@ body {
     margin: 0.3vw auto;
     font-size: 1.7vw;
     padding: 0.01vw;
+}
+
+.js-input:hover {
+    cursor: move;
 }
 
 @media screen and (min-width: 1000px) {
