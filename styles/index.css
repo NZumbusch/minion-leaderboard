@@ -7,8 +7,10 @@
 }
 
 body {
+    background-color: black;
     background-image: url("../src/img/Mountain-2.jpeg");
     background-size:cover;
+    background-repeat: no-repeat;
 }
 
 .container {
@@ -16,40 +18,42 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
+    width: 90%;
+    margin: 0.5vw auto 0px auto;
+    padding: 0.5vw;
+    border-radius: 0.6vw;
 }
 
-.settings-link {
+.settings-link > img {
     background-color: rgb(129, 129, 129);
+    position: inherit;
+    max-width: 5.5vw;
+    padding: 0.7vw;
 }
 
-.home {
+.home > img {
     background-color: rgb(129, 129, 129);
-}
-
-img {
-    padding-top: 8px;
-    padding-bottom: 5px;
-    padding-left: 8px;
-    padding-right: 8px;
-    max-width: 50px;
+    position: inherit;
+    max-width: 5.5vw;
+    padding: 0.7vw;
 }
 
 .container > p {
-    font-size: 40px;
-    padding: 10px;
+    font-size: 4.5vw;
+    padding: 0.9vw;
     color: white;
 }
 
 .setting {
     color: black;
-    font-size: 23px;
+    font-size: 2.5vw;
     text-align: center;
     background-color: rgb(158, 158, 196);
 }
 
 .setting > p {
-    display: inline-block
+    display: inline-block;
+    font-size: 2.2vw;
 }
 
 .setting > h3 {
@@ -60,20 +64,21 @@ img {
 #leaderboard {
     margin-top: 10px;
     margin: 0 auto;
-    width: 700px;
+    width: 50%;
     padding: 10px 10px;
     background-color: rgb(163, 240, 175);
 }
 
 .rank {
     color: black;
-    font-size: 23px;
+    font-size: 2.5vw;
     text-align: center;
     background-color: rgb(163, 240, 175);
 }
 
 .rank > p {
     display: inline-block;
+    font-size: 2.2vw;
 }
 
 .rank > h3 {
@@ -89,7 +94,7 @@ img {
     background-color: gray;
     color: black;
     text-align: center;
-    width: 700px;
+    width: 50%;
     margin: 0 auto;
     padding: 10px 10px;
     border-radius: 0px 0px 10px 10px ;
@@ -98,8 +103,43 @@ img {
 #settings {
     background-color: rgb(158, 158, 196);
     margin: 0 auto;
-    width: 700px;
+    width: 50%;
     padding: 10px 10px;
     border-radius: 10px 10px 0px 0px;
-    margin-top: 130px;
+    margin-top: 1.6%;
+}
+
+.search {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-input {
+    width: 40vw;
+    font-size: 1.7vw;
+    padding: 0.3vw;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.search-button {
+    width: 6.5vw;
+    text-align: justify;
+    margin: 0.3vw auto;
+    font-size: 1.7vw;
+    padding: 0.01vw;
+}
+
+@media screen and (min-width: 1000px) {
+    .rank {
+       font-size: 1.9vw;
+    }
+
+    .setting {
+        font-size: 1.9vw;
+    }
+
+    .container > p {
+        font-size: 4vw;
+    }
 }

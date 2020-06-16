@@ -57,11 +57,11 @@
 
         <div id="leaderboard">
             <div class="rank"><p>-</p></div>
-            <div class="rank"><p class="settings-text">First:</p><h3 id="first-name">none</h3><p class="settings-text"> with:</p><h3 id="first-value">0</h3></div>
-            <div class="rank"><p class="settings-text">Second:</p><h3 id="second-name">none</h3><p class="settings-text"> with:</p><h3 id="second-value">0</h3></div>
-            <div class="rank"><p class="settings-text">Third:</p><h3 id="third-name">none</h3><p class="settings-text"> with:</p><h3 id="third-value">0</h3></div>
-            <div class="rank"><p class="settings-text">Forth:</p><h3 id="forth-name">none</h3><p class="settings-text"> with:</p><h3 id="forth-value">0</h3></div>
-            <div class="rank"><p class="settings-text">Fifth:</p><h3 id="fifth-name">none</h3><p class="settings-text"> with:</p><h3 id="fifth-value">0</h3></div>
+            <div class="rank"><p class="settings-text">First:</p><h3 id="first-name">none</h3><p class="settings-text"> with:</p><h3 id="first-value">0</h3><p class="settings-text"> coins.</p></div>
+            <div class="rank"><p class="settings-text">Second:</p><h3 id="second-name">none</h3><p class="settings-text"> with:</p><h3 id="second-value">0</h3><p class="settings-text"> coins.</p></div>
+            <div class="rank"><p class="settings-text">Third:</p><h3 id="third-name">none</h3><p class="settings-text"> with:</p><h3 id="third-value">0</h3><p class="settings-text"> coins.</p></div>
+            <div class="rank"><p class="settings-text">Forth:</p><h3 id="forth-name">none</h3><p class="settings-text"> with:</p><h3 id="forth-value">0</h3><p class="settings-text"> coins.</p></div>
+            <div class="rank"><p class="settings-text">Fifth:</p><h3 id="fifth-name">none</h3><p class="settings-text"> with:</p><h3 id="fifth-value">0</h3><p class="settings-text"> coins.</p></div>
             <div class="rank"><p>-</p></div>
         </div>
         
@@ -73,8 +73,8 @@
 
         <div>
             <form action="" class="search">
-                <input type="text" name="search-entered" id="search-entered" placeholder="What minion do you want to search?">
-                <input type="button" name="search-button" id="search-button" value="Search">
+                <input class="text-input" type="text" name="search-entered" id="search-entered" placeholder="What minion do you want to search?">
+                <input class = "search-button" type="button" name="search-button" id="search-button" value="Search">
             </form>
         </div>
 
