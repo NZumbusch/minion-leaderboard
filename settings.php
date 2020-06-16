@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-
+<?php
+?>
 <!DOCTYPE html>
 <html>
     <head>
