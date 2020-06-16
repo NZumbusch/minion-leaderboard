@@ -87,7 +87,7 @@ function get_minion_search (inserted) {
 }
 
 function format (n) {
-    return n.toFixed(1).replace('.', ',').replace(/\d{3}(?=(\d{3})*,)/g, function (s) {
+    return n.toFixed(1).replace('.', ',').replace(/\d{3}(?=(\d{})*,)/g, function (s) {
       return '.' + s
     })
 }
