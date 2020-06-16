@@ -16,10 +16,12 @@ session_start();
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         
-        <a class="home" href="index.php"><img src="src/img/home-solid.svg" alt="home"></img></a>
 
         <form action="includes/change_settings.inc.php" id="settings" method="get">
-            <h1>Minion Leaderboard Settings: </h1>
+            <div class="container">
+                <a class="home" href="index.php"><img src="src/img/home-solid.svg" alt="home"></img></a>
+                <h1>Minion Leaderboard Settings: </h1>
+            </div>
             <label class="label" for="amount" form="settings">Minionamount: </label>
             <?php  echo '<input class="input" type="number" name="amount" id="amount" min="1" max="24" value='.$_SESSION["amount"].' required>'?>
             <label class="label" for="level" form="settings">Minionlevel: </label>
