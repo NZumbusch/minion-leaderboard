@@ -212,13 +212,15 @@ document.getElementById("second-name").innerHTML = minion_leaderboard[1][0]
 document.getElementById("third-name").innerHTML = minion_leaderboard[2][0]
 document.getElementById("forth-name").innerHTML = minion_leaderboard[3][0]
 document.getElementById("fifth-name").innerHTML = minion_leaderboard[4][0]
+document.getElementById("sixth-name").innerHTML = minion_leaderboard[5][0]
+document.getElementById("seventh-name").innerHTML = minion_leaderboard[6][0]
 document.getElementById("first-value").innerHTML = format(minion_leaderboard[0][1])
 document.getElementById("second-value").innerHTML = format(minion_leaderboard[1][1])
 document.getElementById("third-value").innerHTML = format(minion_leaderboard[2][1])
 document.getElementById("forth-value").innerHTML = format(minion_leaderboard[3][1])
 document.getElementById("fifth-value").innerHTML = format(minion_leaderboard[4][1])
-
-
+document.getElementById("sixth-value").innerHTML = format(minion_leaderboard[5][1])
+document.getElementById("seventh-value").innerHTML = format(minion_leaderboard[6][1])
 
 
 

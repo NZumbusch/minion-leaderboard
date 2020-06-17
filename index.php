@@ -112,13 +112,13 @@
         </div>
 
         <div id="leaderboard">
-            <div class="rank"><p>-</p></div>
             <div class="rank"><p class="settings-text">First:</p><h3 class="js-input" id="first-name">none</h3><p class="settings-text"> with:</p><h3 class="js-input" id="first-value">0</h3><p class="settings-text"> coins.</p></div>
             <div class="rank"><p class="settings-text">Second:</p><h3 class="js-input" id="second-name">none</h3><p class="settings-text"> with:</p><h3 class="js-input" id="second-value">0</h3><p class="settings-text"> coins.</p></div>
             <div class="rank"><p class="settings-text">Third:</p><h3 class="js-input" id="third-name">none</h3><p class="settings-text"> with:</p><h3 class="js-input" id="third-value">0</h3><p class="settings-text"> coins.</p></div>
             <div class="rank"><p class="settings-text">Forth:</p><h3 class="js-input" id="forth-name">none</h3><p class="settings-text"> with:</p><h3 class="js-input" id="forth-value">0</h3><p class="settings-text"> coins.</p></div>
             <div class="rank"><p class="settings-text">Fifth:</p><h3 class="js-input" id="fifth-name">none</h3><p class="settings-text"> with:</p><h3 class="js-input" id="fifth-value">0</h3><p class="settings-text"> coins.</p></div>
-            <div class="rank"><p>-</p></div>
+            <div class="rank"><p class="settings-text">Sixth:</p><h3 class="js-input" id="sixth-name">none</h3><p class="settings-text"> with:</p><h3 class="js-input" id="sixth-value">0</h3><p class="settings-text"> coins.</p></div>
+            <div class="rank"><p class="settings-text">Seventh:</p><h3 class="js-input" id="seventh-name">none</h3><p class="settings-text"> with:</p><h3 class="js-input" id="seventh-value">0</h3><p class="settings-text"> coins.</p></div>
         </div>
         
         <?php
