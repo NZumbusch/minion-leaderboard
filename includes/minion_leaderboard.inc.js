@@ -96,7 +96,7 @@ function format (n) {
             return '.' + s
         })
     }
-    
+
 }
 
 
@@ -106,6 +106,8 @@ function format (n) {
 //_______________________________________________________________________________
 // Main
 
+
+//Getting prices
 var minion_list = []
 
 for (var key in minions) {
@@ -113,10 +115,7 @@ for (var key in minions) {
 }
 
 var prices_str = data.innerHTML
-
 var prices_str_arr = prices_str.split("\n")
-
-
 var prices_arr = Array()
 
 prices_str_arr.forEach(function (item, index) {
@@ -126,7 +125,6 @@ prices_str_arr.forEach(function (item, index) {
 })
 
 var counter = false
-
 var prices = {}
 
 prices_arr.shift()
@@ -145,6 +143,8 @@ prices_arr.forEach(function (item, index) {
     }
 })
 
+
+//Calculating minion profits
 var minion_profits = []
 
 for (var m_key in minions) {
@@ -168,6 +168,9 @@ for (var m_key in minions) {
     minion_profits.push([m_key, profit])
 }
 
+
+
+//Sorting minion profits for leaderboard
 var minion_profit_index = {}
 
 var minion_profits_nums = []
@@ -184,7 +187,7 @@ minion_profits_nums.reverse()
 var minion_leaderboard = []
 
 minion_profits_nums.forEach(function (profit, index) {
-    minion_leaderboard.push([minion_profit_index[profit], Math.round(profit)])
+    minion_leaderboard.push([minion_profit_index[profit], profit])
 })
 
 
