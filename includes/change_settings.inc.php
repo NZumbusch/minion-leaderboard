@@ -32,8 +32,18 @@ if (isset($_GET["diamondspreading"])) {
     echo "false";
 }
 
+if (isset($_GET["api"])) {
+    if ($_GET["api"] == "on") {
+        $_SESSION["api"] = "true";
+        echo "true";
+    } 
+} else {
+    $_SESSION["api"] = "false";
+    echo "false";
+}
+
 echo "Heading";
 
 
-header("LOCATION: ../index.php");
+header("LOCATION: ../index.php?api=npc");
 exit();

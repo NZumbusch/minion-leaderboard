@@ -37,6 +37,10 @@ form > h1 {
     cursor: move;
 }
 
+#api:hover {
+    cursor: move;
+}
+
 .input {
     width: 17vw;
     padding-top: 0.3vw;

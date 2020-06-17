@@ -36,6 +36,13 @@
         $_SESSION["diamondspreading"] = "false";
     }
 
+    if (!isset($_SESSION["api"])) {
+        if (isset($_COOKIE["api"])) {
+            $_SESSION["api"] = $_COOKIE["api"];
+        }
+        $_SESSION["api"] = "false";
+    }
+
     if (!isset($_COOKIE["amount"])) {
         setcookie('amount', $_SESSION, time() + 86400 * 30, "/");
     } else {
@@ -73,6 +80,14 @@
     } else {
         if ($_COOKIE["diamondspreading"] != $_SESSION) {
             setcookie('diamondspreading', $_SESSION, time() + 86400 * 30, "/");
+        }
+    }
+
+    if (!isset($_COOKIE["api"])) {
+        setcookie('api', $_SESSION, time() + 86400 * 30, "/");
+    } else {
+        if ($_COOKIE["api"] != $_SESSION) {
+            setcookie('api', $_SESSION, time() + 86400 * 30, "/");
         }
     }
 ?>
@@ -115,6 +130,7 @@
                 <div class="setting"><p class="settings-text">Minion fuel:</p><h3 class="settings-value" id="fuel"><?php echo $_SESSION["fuel"]?></h3><p class="settings-text">%</p></div>
                 <div class="setting"><p class="settings-text">Time afk:</p><h3 class="settings-value" id="afk"><?php echo $_SESSION["afk"]?></h3><p class="settings-text">%</p></div>
                 <div class="setting"><p class="settings-text">Diamondspreadings:</p><h3 class="settings-value" id="diamondspreading"><?php echo $_SESSION["diamondspreading"]?></h3></div>
+                <div class="setting"><p class="settings-text">Api:</p><h3 class="settings-value" id="api"><?php echo $_SESSION["api"]?></h3></div>
             </a>
         </div>
 
@@ -123,10 +139,10 @@
         </div>
         
         <?php
-        if (!isset($_GET["api"])) {
+        if ($_SESSION["api"] == "true") {
         $data = file("http://infagsuso.bplaced.net/project/index.php");
         $data_str = implode('', $data);
-        } else if ($_GET["api"] == "npc") {
+        } else if ($_SESSION["api"] == "false") {
             $data = [
                 "----------",
                 "WHEAT",

@@ -38,6 +38,14 @@ session_start();
                     echo '<input class="checkbox" type="checkbox" name="diamondspreading" id="diamondspreading">';
                 }
             ?>
+            <label class="label" for="api" form="settings">Do you want to use the api: </label>
+            <?php 
+                if (!($_SESSION["api"] == "false")) {
+                    echo '<input class="checkbox" type="checkbox" name="api" id="api" checked value="on">';
+                } else {
+                    echo '<input class="checkbox" type="checkbox" name="api" id="api">';
+                }
+            ?>
 
             
             <input class="submit" type="submit" name="submit" value="Submit" id="submit"> 
