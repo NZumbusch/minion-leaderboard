@@ -69,29 +69,12 @@ body {
     background-color: rgb(163, 240, 175);
 }
 
-.rank {
-    color: black;
-    font-size: 2.5vw;
-    text-align: center;
-    background-color: rgb(163, 240, 175);
-}
-
-.rank > p {
-    display: inline-block;
-    font-size: 2.2vw;
-}
-
-.rank > h3 {
-    display: inline-block;
-    padding: 0px 5px;
-}
-
 .data {
     font-size: 0px;
 }
 
 .search {
-    background-color: gray;
+    background-color: rgb(129, 129, 129);
     color: black;
     text-align: center;
     width: 50%;
@@ -130,8 +113,10 @@ body {
     padding: 0.01vw;
 }
 
-.js-input:hover {
-    cursor: move;
+.leaderboard {
+    text-align: left;
+    font-size: 2.5vw;
+    color: black;
 }
 
 @media screen and (min-width: 1000px) {
@@ -147,3 +132,4 @@ body {
         font-size: 4vw;
     }
 }
+

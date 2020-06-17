@@ -60,7 +60,7 @@ var diamondspreading = document.getElementById("diamondspreading").innerHTML
 const afk = document.getElementById("afk").innerHTML
 const fuel = document.getElementById("fuel").innerHTML
 //const url = "http://infagsuso.bplaced.net/project/index.php"
-const data = document.querySelector(".data")
+const data = document.querySelector(".api_data")
 
 
 
@@ -79,8 +79,8 @@ function get_minion_search (inserted) {
     }catch (exception) {
         entered = inserted
         minion_leaderboard.forEach(function (element, index) {
-            if (element[0].includes(entered)) {
-                alert("With your settings the " + element[0] + " minion makes " + format(element[1]) + " coins per day and has the position " + (index + 1) + ".")
+            if (element[0].toUpperCase().includes(entered.toUpperCase())) {
+                alert("With your settings the " + element[0] + " minion makes " + element[1] + " coins per day and has the position " + (index + 1) + ".")
         }
         })
     }
@@ -117,31 +117,54 @@ for (var key in minions) {
 var prices_str = data.innerHTML
 var prices_str_arr = prices_str.split("\n")
 var prices_arr = Array()
-
-prices_str_arr.forEach(function (item, index) {
-    if (!(item.indexOf("<br>") >= 0)) {
-        prices_arr.push(item)
-    }
-})
-
-var counter = false
-var prices = {}
-
-prices_arr.shift()
-
-prices_arr.forEach(function (item, index) {
-    if (counter == false) {
-        counter = true
-        prices[item.replace("[", "").replace("]", "")] = 1
-    } else {
-        counter = false
-        try {
-            prices[(prices_arr[index - 1]).replace("[", "").replace("]", "")] = parseInt(item.replace("[", "").replace("]", ""), 10)
-        } catch (exception) {
-            raise(exception)
+if (prices_str_arr[0].includes("---")) {
+    console.log("Using npc prices")
+    prices_str_arr.forEach(function (item, index) {
+        if (item.includes("---")) {
+            prices_str_arr.splice(index, 1)
         }
-    }
+    })
+    var counter = false
+    var prices = {}
+    prices_str_arr.forEach(function (item, index) {
+        if (counter == false) {
+            counter = true
+            prices[item.replace('"', "")] = 0
+        } else {
+            counter = false
+            prices[prices_str_arr[index -1]] = parseInt(item)
+        }
+    })
+    console.log(prices)
+} else {
+    console.log("Using api prices")
+    prices_str_arr.forEach(function (item, index) {
+        if (!(item.indexOf("<br>") >= 0)) {
+            prices_arr.push(item)
+        }
+    })
+
+
+    var counter = false
+    var prices = {}
+
+    prices_arr.shift()
+
+    prices_arr.forEach(function (item, index) {
+        if (counter == false) {
+            counter = true
+            prices[item.replace("[", "").replace("]", "")] = 1
+        } else {
+            counter = false
+            try {
+                prices[(prices_arr[index - 1]).replace("[", "").replace("]", "")] = parseInt(item.replace("[", "").replace("]", ""), 10)
+            } catch (exception) {
+                raise(exception)
+            }
+        }
 })
+}
+
 
 
 //Calculating minion profits
@@ -207,67 +230,24 @@ forth_value = minion_leaderboard[4][1]
 fifth_name = minion_leaderboard[0][0]
 fifth_value = minion_leaderboard[5][1]
 
-document.getElementById("first-name").innerHTML = minion_leaderboard[0][0]
-document.getElementById("second-name").innerHTML = minion_leaderboard[1][0]
-document.getElementById("third-name").innerHTML = minion_leaderboard[2][0]
-document.getElementById("forth-name").innerHTML = minion_leaderboard[3][0]
-document.getElementById("fifth-name").innerHTML = minion_leaderboard[4][0]
-document.getElementById("sixth-name").innerHTML = minion_leaderboard[5][0]
-document.getElementById("seventh-name").innerHTML = minion_leaderboard[6][0]
-document.getElementById("first-value").innerHTML = format(minion_leaderboard[0][1])
-document.getElementById("second-value").innerHTML = format(minion_leaderboard[1][1])
-document.getElementById("third-value").innerHTML = format(minion_leaderboard[2][1])
-document.getElementById("forth-value").innerHTML = format(minion_leaderboard[3][1])
-document.getElementById("fifth-value").innerHTML = format(minion_leaderboard[4][1])
-document.getElementById("sixth-value").innerHTML = format(minion_leaderboard[5][1])
-document.getElementById("seventh-value").innerHTML = format(minion_leaderboard[6][1])
+var minion_leaderboard_new = []
 
+minion_leaderboard.forEach(function (element, index) {
+    minion_leaderboard_new.push(element)
+})
 
+minion_leaderboard_new.forEach(function (element, index) {
+    minion_leaderboard_new[index][0] = element[0].charAt(0).toUpperCase() + element[0].slice(1);
+    minion_leaderboard_new[index][1] = format(element[1])
+    minion_leaderboard_new[index] = element.join(" with ") + " coins a day."
+})
+
+var leaderboard_display_string = minion_leaderboard_new.join("<br />")
+document.getElementById("leaderboard").innerHTML = leaderboard_display_string
 
 //_______________________________________________________________________________
 // Listeners
 
-
-document.getElementById("first-name").addEventListener(type="click", function () {
-    console.log(this.innerHTML)
-    get_minion_search(this.innerHTML)
-})
-document.getElementById("second-name").addEventListener(type="click", function () {
-    console.log(this.innerHTML)
-    get_minion_search(this.innerHTML)
-})
-document.getElementById("third-name").addEventListener(type="click", function () {
-    console.log(this.innerHTML)
-    get_minion_search(this.innerHTML)
-})
-document.getElementById("forth-name").addEventListener(type="click", function () {
-    console.log(this.innerHTML)
-    get_minion_search(this.innerHTML)
-})
-document.getElementById("fifth-name").addEventListener(type="click", function () {
-    console.log(this.innerHTML)
-    get_minion_search(this.innerHTML)
-})
-document.getElementById("first-value").addEventListener(type="click", function () {
-    console.log("1")
-    get_minion_search(minion_leaderboard[0][0])
-})
-document.getElementById("second-value").addEventListener(type="click", function () {
-    console.log("2")
-    get_minion_search(minion_leaderboard[1][0])
-})
-document.getElementById("third-value").addEventListener(type="click", function () {
-    console.log("3")
-    get_minion_search(minion_leaderboard[2][0])
-})
-document.getElementById("forth-value").addEventListener(type="click", function () {
-    console.log("4")
-    get_minion_search(minion_leaderboard[3][0])
-})
-document.getElementById("fifth-value").addEventListener(type="click", function () {
-    console.log("5")
-    get_minion_search(minion_leaderboard[4][0])
-})
 
 search_button.addEventListener(type="click", function () {
     var entered = search_entered.value
@@ -278,7 +258,7 @@ document.getElementById('search-entered').onkeypress = function(e){
     if (!e) e = window.event;
     var keyCode = e.keyCode || e.which;
     if (keyCode == '13'){
-        var entered = entered = search_entered.value
+        var entered = search_entered.value
         get_minion_search(entered)
     }
 }

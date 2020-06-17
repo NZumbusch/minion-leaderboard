@@ -101,6 +101,13 @@
             </div>
         </nav>
 
+        <div>
+            <form action="" class="search">
+                <input class="text-input" type="text" name="search-entered" id="search-entered" placeholder="What minion do you want to search?">
+                <input class = "search-button" type="button" name="search-button" id="search-button" value="Search">
+            </form>
+        </div>
+
         <div id="settings">
             <a href="settings.php">
                 <div class="setting"><p class="settings-text">Minion amount:</p><h3 class="settings-value" id="amount"><?php echo $_SESSION["amount"]?></h3></div>
@@ -111,28 +118,203 @@
             </a>
         </div>
 
-        <div id="leaderboard">
-            <div class="rank"><p class="settings-text">First:</p><h3 class="js-input" id="first-name">none</h3><p class="settings-text"> with:</p><h3 class="js-input" id="first-value">0</h3><p class="settings-text"> coins.</p></div>
-            <div class="rank"><p class="settings-text">Second:</p><h3 class="js-input" id="second-name">none</h3><p class="settings-text"> with:</p><h3 class="js-input" id="second-value">0</h3><p class="settings-text"> coins.</p></div>
-            <div class="rank"><p class="settings-text">Third:</p><h3 class="js-input" id="third-name">none</h3><p class="settings-text"> with:</p><h3 class="js-input" id="third-value">0</h3><p class="settings-text"> coins.</p></div>
-            <div class="rank"><p class="settings-text">Forth:</p><h3 class="js-input" id="forth-name">none</h3><p class="settings-text"> with:</p><h3 class="js-input" id="forth-value">0</h3><p class="settings-text"> coins.</p></div>
-            <div class="rank"><p class="settings-text">Fifth:</p><h3 class="js-input" id="fifth-name">none</h3><p class="settings-text"> with:</p><h3 class="js-input" id="fifth-value">0</h3><p class="settings-text"> coins.</p></div>
-            <div class="rank"><p class="settings-text">Sixth:</p><h3 class="js-input" id="sixth-name">none</h3><p class="settings-text"> with:</p><h3 class="js-input" id="sixth-value">0</h3><p class="settings-text"> coins.</p></div>
-            <div class="rank"><p class="settings-text">Seventh:</p><h3 class="js-input" id="seventh-name">none</h3><p class="settings-text"> with:</p><h3 class="js-input" id="seventh-value">0</h3><p class="settings-text"> coins.</p></div>
+        <div>
+            <div class="rank"><p class="leaderboard" id="leaderboard">none</p></div>
         </div>
         
         <?php
+        if (!isset($_GET["api"])) {
         $data = file("http://infagsuso.bplaced.net/project/index.php");
         $data_str = implode('', $data);
-        echo "<div class='data'>$data_str</div>";
+        } else if ($_GET["api"] == "npc") {
+            $data = [
+                "----------",
+                "WHEAT",
+                1,
+                "----------",
+                "SEEDS",
+                 0.5,
+                "----------",
+                "POTATO_ITEM",
+                1,
+                "----------",
+                "CARROT_ITEM", 
+                1, 
+                "----------",
+                "MELON",
+                0.5, 
+                "----------",
+                "PUMPKIN", 
+                4, 
+                "----------",
+                "RED_MUSHROOM", 
+                4, 
+                "----------",
+                "BROWN_MUSHROOM", 
+                4, 
+                "----------",
+                "CACTUS", 
+                1, 
+                "----------",
+                "INK_SACK:3", 
+                3,
+                "----------",
+                "SUGAR_CANE", 
+                2, 
+                "----------",
+                "FEATHER", 
+                3,
+                "----------",
+                "RAW_BEEF", 
+                4, 
+                "----------",
+                "LEATHER", 
+                3, 
+                "----------",
+                "PORK",
+                5, 
+                "----------",
+                "RAW_CHICKEN", 
+                4, 
+                "----------",
+                "ENCHANTED_EGG", 
+                435, 
+                "----------",
+                "MUTTON", 
+                5, 
+                "----------",
+                "RABBIT_HIDE", 
+                5, 
+                "----------",
+                "RABBIT_FOOT", 
+                5, 
+                "----------",
+                "RABBIT", 
+                4, 
+                "----------",
+                "COBBLESTONE",
+                1, 
+                "----------",
+                "COAL",
+                2, 
+                "----------",
+                "IRON_INGOT",
+                3, 
+                "----------",
+                "GOLD_INGOT",
+                4, 
+                "----------",
+                "EMERALD", 
+                6, 
+                "----------",
+                "DIAMOND",
+                8, 
+                "----------",
+                "INK_SACK:4", 
+                1, 
+                "----------",
+                "REDSTONE", 
+                1, 
+                "----------",
+                "QUARTZ",
+                4, 
+                "----------",
+                "ENDER_STONE",
+                2, 
+                "----------",
+                "GLOWSTONE_DUST",
+                2, 
+                "----------",
+                "OBSIDIAN",
+                12, 
+                "----------",
+                "GRAVEL",
+                3, 
+                "----------",
+                "FLINT",
+                4, 
+                "----------",
+                "SAND",
+                2, 
+                "----------",
+                "CLAY_BALL",
+                3, 
+                "----------",
+                "ICE",
+                0.5, 
+                "----------",
+                "ROTTEN_FLESH",
+                2, 
+                "----------",
+                "BONE",
+                2, 
+                "----------",
+                "SPIDER_EYE",
+                3, 
+                "----------",
+                "STRING",
+                3, 
+                "----------",
+                "ENDER_PEARL",
+                10, 
+                "----------",
+                "BLAZE_ROD",
+                9, 
+                "----------",
+                "GHAST_TEAR",
+                16, 
+                "----------",
+                "SLIME_BALL",
+                5, 
+                "----------",
+                "MAGMA_CREAM",
+                8, 
+                "----------",
+                "RAW_FISH",
+                6, 
+                "----------",
+                "RAW_FISH:1",
+                10, 
+                "----------",
+                "RAW_FISH:2",
+                20, 
+                "----------",
+                "PRISMARINE_SHARD",
+                5, 
+                "----------",
+                "PRISMARINE_CRYSTALS",
+                5, 
+                "----------",
+                "SPONGE",
+                50, 
+                "----------",
+                "LOG",
+                2, 
+                "----------",
+                "LOG:2",
+                2, 
+                "----------",
+                "LOG_2",
+                2, 
+                "----------",
+                "LOG_2:1",
+                2, 
+                "----------",
+                "LOG:3",
+                2, 
+                "----------",
+                "LOG:1",
+                2, 
+                "----------",
+                "NETHER_STALK",
+                3, 
+                "----------",
+                "SNOW_BALL",
+                1];
+            $data_str = implode("\n", $data);
+        }
+        echo "<div class='api_data'>$data_str</div>";
         ?>
-
-        <div>
-            <form action="" class="search">
-                <input class="text-input" type="text" name="search-entered" id="search-entered" placeholder="What minion do you want to search?">
-                <input class = "search-button" type="button" name="search-button" id="search-button" value="Search">
-            </form>
-        </div>
 
         <script type="text/javascript" src="includes/minion_leaderboard.inc.js"></script>
     </body>
