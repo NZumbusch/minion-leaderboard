@@ -2,23 +2,78 @@
     session_start();
 
     if (!isset($_SESSION["amount"])) {
-        $_SESSION["amount"] = 24;
+        if (isset($_COOKIE["amount"])) {
+            $_SESSION["amount"] = $_COOKIE["amount"];
+        }
+        $_SESSION["amount"] = 1;
     }
 
     if (!isset($_SESSION["level"])) {
-        $_SESSION["level"] = 5;
+        if (isset($_COOKIE["level"])) {
+            $_SESSION["level"] = $_COOKIE["level"];
+        }
+        $_SESSION["level"] = 1;
     }
 
     if (!isset($_SESSION["fuel"])) {
+        if (isset($_COOKIE["fuel"])) {
+            $_SESSION["fuel"] = $_COOKIE["fuel"];
+        }
         $_SESSION["fuel"] = 0;
     }
 
     if (!isset($_SESSION["afk"])) {
+        if (isset($_COOKIE["afk"])) {
+            $_SESSION["afk"] = $_COOKIE["afk"];
+        }
         $_SESSION["afk"] = 0;
     }
 
     if (!isset($_SESSION["diamondspreading"])) {
+        if (isset($_COOKIE["diamondspreading"])) {
+            $_SESSION["diamondspreading"] = $_COOKIE["diamondspreading"];
+        }
         $_SESSION["diamondspreading"] = "false";
+    }
+
+    if (!isset($_COOKIE["amount"])) {
+        setcookie('amount', $_SESSION, time()+3600);
+    } else {
+        if ($_COOKIE["amount"] != $_SESSION) {
+            setcookie('amount', $_SESSION, time()+3600);
+        }
+    }
+
+    if (!isset($_COOKIE["level"])) {
+        setcookie('level', $_SESSION, time()+3600);
+    } else {
+        if ($_COOKIE["level"] != $_SESSION) {
+            setcookie('level', $_SESSION, time()+3600);
+        }
+    }
+
+    if (!isset($_COOKIE["fuel"])) {
+        setcookie('fuel', $_SESSION, time()+3600);
+    } else {
+        if ($_COOKIE["fuel"] != $_SESSION) {
+            setcookie('fuel', $_SESSION, time()+3600);
+        }
+    }
+
+    if (!isset($_COOKIE["afk"])) {
+        setcookie('afk', $_SESSION, time()+3600);
+    } else {
+        if ($_COOKIE["afk"] != $_SESSION) {
+            setcookie('afk', $_SESSION, time()+3600);
+        }
+    }
+
+    if (!isset($_COOKIE["diamondspreading"])) {
+        setcookie('diamondspreading', $_SESSION, time()+3600);
+    } else {
+        if ($_COOKIE["diamondspreading"] != $_SESSION) {
+            setcookie('diamondspreading', $_SESSION, time()+3600);
+        }
     }
 ?>
 

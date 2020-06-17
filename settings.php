@@ -27,7 +27,7 @@ session_start();
             <label class="label" for="level" form="settings">Minionlevel: </label>
             <?php echo '<input class="input" type="number" name="level" id="level" min="1" max="11" value='.$_SESSION["level"].' required>'?>
             <label class="label" for="fuel" form="settings">Fuel in Percent: </label>
-            <?php echo '<input class="input" type="number" name="fuel" id="fuel" min="1" max="400" value='.$_SESSION["fuel"].' required>'?>
+            <?php echo '<input class="input" type="number" name="fuel" id="fuel" min="0" max="400" value='.$_SESSION["fuel"].' required>'?>
             <label class="label" for="afk" form="settings">Percent of the time the island is loaded: </label>
             <?php echo '<input class="input" type="number" name="afk" id="afk" min="0" max="100" value='.$_SESSION["afk"].' required>'?>
             <label class="label" for="diamondspreading" form="settings">Are Diamondspreadings used: </label>
