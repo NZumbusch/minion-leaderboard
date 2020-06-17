@@ -37,42 +37,42 @@
     }
 
     if (!isset($_COOKIE["amount"])) {
-        setcookie('amount', $_SESSION, time()+3600);
+        setcookie('amount', $_SESSION, time() + 86400 * 30, "/");
     } else {
         if ($_COOKIE["amount"] != $_SESSION) {
-            setcookie('amount', $_SESSION, time()+3600);
+            setcookie('amount', $_SESSION, time() + 86400 * 30, "/");
         }
     }
 
     if (!isset($_COOKIE["level"])) {
-        setcookie('level', $_SESSION, time()+3600);
+        setcookie('level', $_SESSION, time() + 86400 * 30, "/");
     } else {
         if ($_COOKIE["level"] != $_SESSION) {
-            setcookie('level', $_SESSION, time()+3600);
+            setcookie('level', $_SESSION, time() + 86400 * 30, "/");
         }
     }
 
     if (!isset($_COOKIE["fuel"])) {
-        setcookie('fuel', $_SESSION, time()+3600);
+        setcookie('fuel', $_SESSION, time() + 86400 * 30, "/");
     } else {
         if ($_COOKIE["fuel"] != $_SESSION) {
-            setcookie('fuel', $_SESSION, time()+3600);
+            setcookie('fuel', $_SESSION, time() + 86400 * 30, "/");
         }
     }
 
     if (!isset($_COOKIE["afk"])) {
-        setcookie('afk', $_SESSION, time()+3600);
+        setcookie('afk', $_SESSION, time() + 86400 * 30, "/");
     } else {
         if ($_COOKIE["afk"] != $_SESSION) {
-            setcookie('afk', $_SESSION, time()+3600);
+            setcookie('afk', $_SESSION, time() + 86400 * 30, "/");
         }
     }
 
     if (!isset($_COOKIE["diamondspreading"])) {
-        setcookie('diamondspreading', $_SESSION, time()+3600);
+        setcookie('diamondspreading', $_SESSION, time() + 86400 * 30, "/");
     } else {
         if ($_COOKIE["diamondspreading"] != $_SESSION) {
-            setcookie('diamondspreading', $_SESSION, time()+3600);
+            setcookie('diamondspreading', $_SESSION, time() + 86400 * 30, "/");
         }
     }
 ?>
