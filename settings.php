@@ -48,7 +48,7 @@ session_start();
             <p class="sort">Up alphabetically</p>
             <input type="radio" class="checkbox" name="sort" id="sort" value="a-up">
             <p class="sort">Down in order of profit</p>
-            <input type="radio" class="checkbox" name="sort" id="sort" value="c-dow">
+            <input type="radio" class="checkbox" name="sort" id="sort" value="c-down">
             <p class="sort">Up in order of profit</p>
             <input type="radio" class="checkbox" name="sort" id="sort" value="c-up">
 

@@ -4,64 +4,73 @@
     if (!isset($_SESSION["amount"])) {
         if (isset($_COOKIE["amount"])) {
             $_SESSION["amount"] = $_COOKIE["amount"];
+        } else {
+            $_SESSION["amount"] = 1;
         }
-        $_SESSION["amount"] = 1;
     }
 
     if (!isset($_SESSION["level"])) {
         if (isset($_COOKIE["level"])) {
             $_SESSION["level"] = $_COOKIE["level"];
+        } else {
+            $_SESSION["level"] = 1;
         }
-        $_SESSION["level"] = 1;
     }
 
     if (!isset($_SESSION["fuel"])) {
         if (isset($_COOKIE["fuel"])) {
             $_SESSION["fuel"] = $_COOKIE["fuel"];
+        } else {
+            $_SESSION["fuel"] = 0;
         }
-        $_SESSION["fuel"] = 0;
     }
 
     if (!isset($_SESSION["afk"])) {
         if (isset($_COOKIE["afk"])) {
             $_SESSION["afk"] = $_COOKIE["afk"];
+        } else {
+            $_SESSION["afk"] = 0;
         }
-        $_SESSION["afk"] = 0;
     }
 
     if (!isset($_SESSION["diamondspreading"])) {
         if (isset($_COOKIE["diamondspreading"])) {
             $_SESSION["diamondspreading"] = $_COOKIE["diamondspreading"];
+        } else {
+            $_SESSION["diamondspreading"] = "false";
         }
-        $_SESSION["diamondspreading"] = "false";
     }
 
     if (!isset($_SESSION["api"])) {
         if (isset($_COOKIE["api"])) {
             $_SESSION["api"] = $_COOKIE["api"];
+        } else {
+            $_SESSION["api"] = "true";
         }
-        $_SESSION["api"] = "false";
     }
 
     if (!isset($_SESSION["min"])) {
         if (isset($_COOKIE["min"])) {
             $_SESSION["min"] = $_COOKIE["min"];
+        } else {
+            $_SESSION["min"] = 0;
         }
-        $_SESSION["min"] = 1;
     }
 
     if (!isset($_SESSION["max"])) {
         if (isset($_COOKIE["max"])) {
             $_SESSION["max"] = $_COOKIE["max"];
+        } else {
+            $_SESSION["max"] = 1000000000;
         }
-        $_SESSION["max"] = 1000000000;
     }
 
     if (!isset($_SESSION["sort"])) {
         if (isset($_COOKIE["sort"])) {
             $_SESSION["sort"] = $_COOKIE["sort"];
+        } else {
+            $_SESSION["max"] = "c-down";
         }
-        $_SESSION["max"] = "c-down";
     }
 
 
@@ -190,7 +199,7 @@
         
         <?php
         if ($_SESSION["api"] == "true") {
-        $data = file("http://infagsuso.bplaced.net/project/index.php");
+        $data = file("http://infagsuso.bplaced.net/project/data_endpoint.php");
         $data_str = implode('', $data);
         } else if ($_SESSION["api"] == "false") {
             $data = [
