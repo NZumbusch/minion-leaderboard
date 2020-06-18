@@ -59,6 +59,9 @@ const level = document.getElementById("level").innerHTML
 var diamondspreading = document.getElementById("diamondspreading").innerHTML
 const afk = document.getElementById("afk").innerHTML
 const fuel = document.getElementById("fuel").innerHTML
+const min = document.getElementById("min").innerHTML
+const max = document.getElementById("max").innerHTML
+const sort = document.getElementById("sort").innerHTML
 //const url = "http://infagsuso.bplaced.net/project/index.php"
 const data = document.querySelector(".api_data")
 
@@ -79,7 +82,7 @@ function get_minion_search (inserted) {
         alert("With your settings the " + entered + " minion makes " + minion_leaderboard[entered - 1][1] + " coins per day and is a " + minion_leaderboard[entered - 1][0] + " minion.")
     }catch (exception) {
         entered = inserted
-        minion_leaderboard.forEach(function (element, index) {
+        profit_sort.forEach(function (element, index) {
             if (element[0].toUpperCase().includes(entered.toUpperCase())) {
                 alert("With your settings the " + element[0] + " minion makes " + element[1] + " coins per day and has the position " + (index + 1) + ".")
         }
@@ -194,11 +197,45 @@ for (var m_key in minions) {
 
 
 
+
+
 //Sorting minion profits for leaderboard
 
-
 minion_profits.sort(function(a,b){return a[1] - b[1]})
-minion_profits.reverse()
+
+console.log(minion_profits)
+
+var to_splice = []
+
+minion_profits.forEach(function (element, index) {
+    if (parseFloat(min) > parseFloat(element[1]) || parseFloat(max) < parseFloat(element[1])) {
+        to_splice.push(index)
+    }
+})
+
+to_splice.reverse()
+
+to_splice.forEach(function (element, index) {
+    minion_profits.splice(element, 1)
+})
+
+if (sort != ("c-up")) {
+    minion_profits.reverse()
+}
+
+var profit_sort = []
+
+minion_profits.forEach(function (element, index) {
+    profit_sort.push(element)
+})
+
+if (sort == "a-down" || sort == "a-up") {
+    minion_profits.sort(function(a,b){return a[0] > b[0];}); 
+}
+
+if (sort.includes("down")) {
+    minion_profits.reverse()
+}
 
 
 var minion_leaderboard = minion_profits
@@ -208,17 +245,6 @@ var minion_leaderboard = minion_profits
 
 //_______________________________________________________________________________
 // Update
-
-first_name = minion_leaderboard[0][0]
-first_value = minion_leaderboard[1][1]
-second_name = minion_leaderboard[0][0]
-second_value = minion_leaderboard[2][1]
-third_name = minion_leaderboard[0][0]
-third_value = minion_leaderboard[3][1]
-forth_name = minion_leaderboard[0][0]
-forth_value = minion_leaderboard[4][1]
-fifth_name = minion_leaderboard[0][0]
-fifth_value = minion_leaderboard[5][1]
 
 var minion_leaderboard_new = []
 

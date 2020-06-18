@@ -18,10 +18,7 @@ session_start();
         
 
         <form action="includes/change_settings.inc.php" id="settings" method="get">
-            <div class="container">
-                <a class="home" href="index.php"><img src="src/img/home-solid.svg" alt="home"></img></a>
-                <h1>Minion Leaderboard Settings: </h1>
-            </div>
+            <h3>Minion settings:</h3>
             <label class="label" for="amount" form="settings">Minionamount: </label>
             <?php  echo '<input class="input" type="number" name="amount" id="amount" min="1" max="24" value='.$_SESSION["amount"].' required>'?>
             <label class="label" for="level" form="settings">Minionlevel: </label>
@@ -39,8 +36,26 @@ session_start();
                 }
             ?>
             <label class="label" for="api" form="settings">Do you want to use the api: </label>
+            
+            <h3>Filter Settings:</h3>
+            <label class="label" for="min" form="settings">Minimum coins per day: </label>
+            <?php echo '<input class="input" type="number" name="min" id="min" min="0" max="999999999999" value='.$_SESSION["min"].' required>'?>
+            <label class="label" for="max" form="settings">Maximum coins per day: </label>
+            <?php echo '<input class="input" type="number" name="max" id="max" min="0" max="999999999999" value='.$_SESSION["max"].' required>'?>
+            <label class="label" for="sort" form="settings">How should the minion leaderboard be sorted?: </label>
+            <p class="sort">Down alphabetically</p>
+            <input type="radio" class="checkbox" name="sort" id="sort" value="a-down">
+            <p class="sort">Up alphabetically</p>
+            <input type="radio" class="checkbox" name="sort" id="sort" value="a-up">
+            <p class="sort">Down in order of profit</p>
+            <input type="radio" class="checkbox" name="sort" id="sort" value="c-dow">
+            <p class="sort">Up in order of profit</p>
+            <input type="radio" class="checkbox" name="sort" id="sort" value="c-up">
+
+            <h3>Technical Settings:</h3>
             <?php 
                 if (!($_SESSION["api"] == "false")) {
+                    echo '<label class="label" for="api" form="settings">Should the api be used? </label>';
                     echo '<input class="checkbox" type="checkbox" name="api" id="api" checked value="on">';
                 } else {
                     echo '<input class="checkbox" type="checkbox" name="api" id="api">';

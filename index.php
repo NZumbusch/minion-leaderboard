@@ -43,51 +43,99 @@
         $_SESSION["api"] = "false";
     }
 
+    if (!isset($_SESSION["min"])) {
+        if (isset($_COOKIE["min"])) {
+            $_SESSION["min"] = $_COOKIE["min"];
+        }
+        $_SESSION["min"] = 1;
+    }
+
+    if (!isset($_SESSION["max"])) {
+        if (isset($_COOKIE["max"])) {
+            $_SESSION["max"] = $_COOKIE["max"];
+        }
+        $_SESSION["max"] = 1000000000;
+    }
+
+    if (!isset($_SESSION["sort"])) {
+        if (isset($_COOKIE["sort"])) {
+            $_SESSION["sort"] = $_COOKIE["sort"];
+        }
+        $_SESSION["max"] = "c-down";
+    }
+
+
+
+
     if (!isset($_COOKIE["amount"])) {
-        setcookie('amount', $_SESSION, time() + 86400 * 30, "/");
+        setcookie('amount', $_SESSION["amount"], time() + 86400 * 30, "/");
     } else {
-        if ($_COOKIE["amount"] != $_SESSION) {
-            setcookie('amount', $_SESSION, time() + 86400 * 30, "/");
+        if ($_COOKIE["amount"] != $_SESSION["amount"]) {
+            setcookie('amount', $_SESSION["amount"], time() + 86400 * 30, "/");
         }
     }
 
     if (!isset($_COOKIE["level"])) {
-        setcookie('level', $_SESSION, time() + 86400 * 30, "/");
+        setcookie('level', $_SESSION["level"], time() + 86400 * 30, "/");
     } else {
-        if ($_COOKIE["level"] != $_SESSION) {
-            setcookie('level', $_SESSION, time() + 86400 * 30, "/");
+        if ($_COOKIE["level"] != $_SESSION["level"]) {
+            setcookie('level', $_SESSION["level"], time() + 86400 * 30, "/");
         }
     }
 
     if (!isset($_COOKIE["fuel"])) {
-        setcookie('fuel', $_SESSION, time() + 86400 * 30, "/");
+        setcookie('fuel', $_SESSION["fuel"], time() + 86400 * 30, "/");
     } else {
-        if ($_COOKIE["fuel"] != $_SESSION) {
-            setcookie('fuel', $_SESSION, time() + 86400 * 30, "/");
+        if ($_COOKIE["fuel"] != $_SESSION["fuel"]) {
+            setcookie('fuel', $_SESSION["fuel"], time() + 86400 * 30, "/");
         }
     }
 
     if (!isset($_COOKIE["afk"])) {
-        setcookie('afk', $_SESSION, time() + 86400 * 30, "/");
+        setcookie('afk', $_SESSION["afk"], time() + 86400 * 30, "/");
     } else {
-        if ($_COOKIE["afk"] != $_SESSION) {
-            setcookie('afk', $_SESSION, time() + 86400 * 30, "/");
+        if ($_COOKIE["afk"] != $_SESSION["afk"]) {
+            setcookie('afk', $_SESSION["afk"], time() + 86400 * 30, "/");
         }
     }
 
     if (!isset($_COOKIE["diamondspreading"])) {
-        setcookie('diamondspreading', $_SESSION, time() + 86400 * 30, "/");
+        setcookie('diamondspreading', $_SESSION["diamondspreading"], time() + 86400 * 30, "/");
     } else {
-        if ($_COOKIE["diamondspreading"] != $_SESSION) {
-            setcookie('diamondspreading', $_SESSION, time() + 86400 * 30, "/");
+        if ($_COOKIE["diamondspreading"] != $_SESSION["diamondspreading"]) {
+            setcookie('diamondspreading', $_SESSION["diamondspreading"], time() + 86400 * 30, "/");
         }
     }
 
     if (!isset($_COOKIE["api"])) {
-        setcookie('api', $_SESSION, time() + 86400 * 30, "/");
+        setcookie('api', $_SESSION["api"], time() + 86400 * 30, "/");
     } else {
-        if ($_COOKIE["api"] != $_SESSION) {
-            setcookie('api', $_SESSION, time() + 86400 * 30, "/");
+        if ($_COOKIE["api"] != $_SESSION["api"]) {
+            setcookie('api', $_SESSION["api"], time() + 86400 * 30, "/");
+        }
+    }
+
+    if (!isset($_COOKIE["min"])) {
+        setcookie('min', $_SESSION["min"], time() + 86400 * 30, "/");
+    } else {
+        if ($_COOKIE["afk"] != $_SESSION["min"]) {
+            setcookie('min', $_SESSION["min"], time() + 86400 * 30, "/");
+        }
+    }
+
+    if (!isset($_COOKIE["max"])) {
+        setcookie('max', $_SESSION["max"], time() + 86400 * 30, "/");
+    } else {
+        if ($_COOKIE["max"] != $_SESSION["max"]) {
+            setcookie('max', $_SESSION["max"], time() + 86400 * 30, "/");
+        }
+    }
+
+    if (!isset($_COOKIE["sort"])) {
+        setcookie('sort', $_SESSION["sort"], time() + 86400 * 30, "/");
+    } else {
+        if ($_COOKIE["sort"] != $_SESSION["sort"]) {
+            setcookie('sort', $_SESSION["sort"], time() + 86400 * 30, "/");
         }
     }
 ?>
@@ -128,6 +176,9 @@
                 <div class="setting"><p class="settings-text">Minion fuel:</p><h3 class="settings-value" id="fuel"><?php echo $_SESSION["fuel"]?></h3><p class="settings-text">%</p></div>
                 <div class="setting"><p class="settings-text">Time afk:</p><h3 class="settings-value" id="afk"><?php echo $_SESSION["afk"]?></h3><p class="settings-text">%</p></div>
                 <div class="setting"><p class="settings-text">Diamondspreadings:</p><h3 class="settings-value" id="diamondspreading"><?php echo $_SESSION["diamondspreading"]?></h3></div>
+                <div class="setting"><p class="settings-text">Min:</p><h3 class="settings-value" id="min"><?php echo $_SESSION["min"]?></h3></div>
+                <div class="setting"><p class="settings-text">Max:</p><h3 class="settings-value" id="max"><?php echo $_SESSION["max"]?></h3></div>
+                <div class="setting"><p class="settings-text">Sort:</p><h3 class="settings-value" id="sort"><?php echo $_SESSION["sort"]?></h3></div>
                 <div class="setting"><p class="settings-text">Api:</p><h3 class="settings-value" id="api"><?php echo $_SESSION["api"]?></h3></div>
             </a>
             <?php if (isset($_GET["redirect"]) && $_GET["redirect"] == "settings") {echo '<h3 id="settings-successfull">Successfully changed settings...</h3>';} ?>

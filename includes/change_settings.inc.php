@@ -42,6 +42,18 @@ if (isset($_GET["api"])) {
     echo "false";
 }
 
+if (isset($_GET["min"])) {
+    $_SESSION["min"] = $_GET["min"];
+}
+
+if (isset($_GET["max"])) {
+    $_SESSION["max"] = $_GET["max"];
+}
+
+if (isset($_GET["sort"])) {
+    $_SESSION["sort"] = $_GET["sort"];
+}
+
 echo "Heading";
 header("LOCATION: ../index.php?redirect=settings");
 exit();
