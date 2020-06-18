@@ -264,14 +264,19 @@ document.getElementById("leaderboard").innerHTML = leaderboard_display_string
 //_______________________________________________________________________________
 // Listeners
 
-document.getElementById("settings-successfull").addEventListener("click", function () {
-    cl_list = document.getElementById("settings-successfull").classList
-    if (cl_list.contains("hidden")) {
-        cl_list.remove("hidden")
-    } else {
-        cl_list.add("hidden")
-    }
-})
+try {
+    document.getElementById("settings-successfull").addEventListener("click", function () {
+        cl_list = document.getElementById("settings-successfull").classList
+        if (cl_list.contains("hidden")) {
+            cl_list.remove("hidden")
+        } else {
+            cl_list.add("hidden")
+        }
+    })
+} catch (exception) {
+    console.log("No settings box provided.")
+}
+
 
 search_button.addEventListener(type="click", function () {
     var entered = search_entered.value
