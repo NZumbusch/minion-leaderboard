@@ -158,7 +158,7 @@
         <![endif]-->
         <nav class="nav">
             <div class="container">
-                <a class="home" href="index.php"><img src="src/img/Hypixel.jpeg" alt="Hypixel Logo"></a>
+                <a class="home" id="about-btn" href="index.php"><img src="src/img/Hypixel.jpeg" alt="Hypixel Logo"></a>
                 <p>Minion Leaderboard for Hypixel Skyblock</p>
                 <a class="settings-link" href="settings.php"><img src="https://img.icons8.com/carbon-copy/100/000000/gear.png"/></a>
             </div>
@@ -383,5 +383,6 @@
         ?>
 
         <script type="text/javascript" src="includes/minion_leaderboard.inc.js"></script>
+        <script type="text/javascript" src="includes/about.inc.js"></script>
     </body>
 </html>
