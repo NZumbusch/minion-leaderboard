@@ -115,7 +115,7 @@
                 <a class="settings-link" href="settings.php"><img src="https://img.icons8.com/carbon-copy/100/000000/gear.png"/></a>
             </div>
 
-            <form action="" class="search" id="search">
+            <form action="" class="search" id="search" autocomplete="off">
                     <input class="text-input" type="text" name="search-entered" id="search-entered" placeholder="What minion do you want to search?">
                     <input class = "search-button" type="button" name="search-button" id="search-button" value="Search">
                 </form>
