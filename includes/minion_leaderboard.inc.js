@@ -119,10 +119,10 @@ for (var key in minions) {
 }
 
 var prices_str = data.innerHTML
-var prices_str_arr = prices_str.split("<br>")
-var prices_arr = Array()
-var prices = {}
-if (prices_str_arr[0].includes("---")) {
+if (prices_str.includes("---")) {
+    var prices_str_arr = prices_str.split("\n")
+    var prices_arr = Array()
+    var prices = {}
     console.log("Using npc prices")
     prices_str_arr.forEach(function (item, index) {
         if (item.includes("---")) {
@@ -140,8 +140,10 @@ if (prices_str_arr[0].includes("---")) {
             prices[prices_str_arr[index -1]] = parseInt(item)
         }
     })
-    console.log(prices)
 } else {
+    var prices_str_arr = prices_str.split("<br>")
+    var prices_arr = Array()
+    var prices = {}
     console.log("Using api prices")
     prices_str_arr.forEach(function (item, index) {
         let price_save = item.replace("\n", "").replace(" ", "")
@@ -153,8 +155,6 @@ if (prices_str_arr[0].includes("---")) {
         prices[prices_arr[counter]] = prices_arr[counter + 1]
     }
 }
-
-console.log(prices)
 
 
 //Calculating minion profits
