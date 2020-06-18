@@ -68,6 +68,7 @@ const data = document.querySelector(".api_data")
 //_______________________________________________________________________________
 // Functions
 
+
 function clicked (clicked) {
     get_minion_search(minion_leaderboard[clicked][0])
 }
@@ -247,7 +248,6 @@ document.getElementById("leaderboard").innerHTML = leaderboard_display_string
 
 //_______________________________________________________________________________
 // Listeners
-
 
 search_button.addEventListener(type="click", function () {
     var entered = search_entered.value
