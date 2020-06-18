@@ -195,24 +195,13 @@ for (var m_key in minions) {
 
 
 //Sorting minion profits for leaderboard
-var minion_profit_index = {}
 
-var minion_profits_nums = []
 
-minion_profits.forEach(function (minion, index) {
-    minion_profits_nums.push(minion[1])
-    minion_profit_index[minion[1]] = minion[0]
-})
+minion_profits.sort(function(a,b){return a[1] - b[1]})
+minion_profits.reverse()
 
-minion_profits_nums.sort(function(a, b){return a - b})
 
-minion_profits_nums.reverse()
-
-var minion_leaderboard = []
-
-minion_profits_nums.forEach(function (profit, index) {
-    minion_leaderboard.push([minion_profit_index[profit], profit])
-})
+var minion_leaderboard = minion_profits
 
 
 
