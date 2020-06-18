@@ -68,6 +68,10 @@ body {
     width: 50%;
     padding: 10px 10px;
     background-color: rgb(163, 240, 175);
+    text-align: left;
+    font-size: 2.3vw;
+    border-radius: 0px 0px 10px 10px;
+    color: black;
 }
 
 .api_data {
@@ -86,12 +90,34 @@ body {
     background-color: rgb(129, 129, 129);
     text-align: center;
     color: black;
+    display: flex;
+    flex-direction: column;
 }
 
 .nav:hover form {
     display: relative;
     opacity: 1 ;
     height: auto;
+}
+
+#settings-successfull {
+    color: white;
+    background-color: lightgreen;
+    border: 1px solid green;
+    border-radius: 0.7vw;
+    padding: 1vw;
+    width: 20vw;
+    margin: 0px auto;
+    margin-top: 2vw;
+}
+
+#settings-successfull:hover {
+    cursor: pointer;
+}
+
+.hidden {
+    opacity: 0;
+    display: none;
 }
 
 #settings {
@@ -101,11 +127,6 @@ body {
     padding: 10px 10px;
     border-radius: 10px 10px 0px 0px;
     margin-top: 1.6%;
-}
-
-.search {
-    display: flex;
-    flex-direction: column;
 }
 
 .text-input {
@@ -122,13 +143,6 @@ body {
     margin: 0.3vw auto;
     font-size: 1.7vw;
     padding: 0.01vw;
-}
-
-.leaderboard {
-    text-align: left;
-    font-size: 2.5vw;
-    border-radius: 0px 0px 10px 10px;
-    color: black;
 }
 
 .rank {

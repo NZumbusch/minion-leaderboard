@@ -238,6 +238,15 @@ document.getElementById("leaderboard").innerHTML = leaderboard_display_string
 //_______________________________________________________________________________
 // Listeners
 
+document.getElementById("settings-successfull").addEventListener("click", function () {
+    cl_list = document.getElementById("settings-successfull").classList
+    if (cl_list.contains("hidden")) {
+        cl_list.remove("hidden")
+    } else {
+        cl_list.add("hidden")
+    }
+})
+
 search_button.addEventListener(type="click", function () {
     var entered = search_entered.value
     get_minion_search(entered)
@@ -247,6 +256,7 @@ document.getElementById('search-entered').onkeypress = function(e){
     if (!e) e = window.event;
     var keyCode = e.keyCode || e.which;
     if (keyCode == '13'){
+        e.preventDefault();
         var entered = search_entered.value
         get_minion_search(entered)
     }

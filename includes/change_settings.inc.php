@@ -43,7 +43,5 @@ if (isset($_GET["api"])) {
 }
 
 echo "Heading";
-
-
-header("LOCATION: ../index.php?api=npc");
+header("LOCATION: ../index.php?redirect=settings");
 exit();

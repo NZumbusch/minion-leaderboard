@@ -115,13 +115,11 @@
                 <a class="settings-link" href="settings.php"><img src="https://img.icons8.com/carbon-copy/100/000000/gear.png"/></a>
             </div>
 
-            <form action="" class="search" id="search" autocomplete="off">
-                    <input class="text-input" type="text" name="search-entered" id="search-entered" placeholder="What minion do you want to search?">
-                    <input class = "search-button" type="button" name="search-button" id="search-button" value="Search">
-                </form>
+            <form action="#" method="none" class="search" id="search" autocomplete="off">
+                <input class="text-input" type="text" name="search-entered" id="search-entered" placeholder="What minion do you want to search?">
+                <input class = "search-button" type="button" name="search-button" id="search-button" value="Search">
+            </form>
         </nav>
-
-        
 
         <div id="settings">
             <a href="settings.php">
@@ -132,6 +130,7 @@
                 <div class="setting"><p class="settings-text">Diamondspreadings:</p><h3 class="settings-value" id="diamondspreading"><?php echo $_SESSION["diamondspreading"]?></h3></div>
                 <div class="setting"><p class="settings-text">Api:</p><h3 class="settings-value" id="api"><?php echo $_SESSION["api"]?></h3></div>
             </a>
+            <?php if (isset($_GET["redirect"]) && $_GET["redirect"] == "settings") {echo '<h3 id="settings-successfull">Successfully changed settings...</h3>';} ?>
         </div>
 
         <div>
