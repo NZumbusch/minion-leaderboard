@@ -77,7 +77,6 @@ function clicked (clicked) {
 }
 
 function get_minion_search (inserted) {
-    console.log(inserted)
     try {
         entered = parseInt(inserted)
         var profit_sort_item_profit_arr = ""
@@ -190,7 +189,6 @@ for (var m_key in minions) {
             item_profit_l[product.Name] = Math.round(item_profit)
             profit += diamonditemprofit * prices["DIAMOND"]
         }
-        console.log(item_profit_l)
     })
     minion_profits.push([m_key, profit, item_profit_l])
 }
@@ -230,8 +228,10 @@ if (sort == "a-down" || sort == "a-up") {
     minion_profits.sort(function(a,b){return a[0] > b[0];}); 
 }
 
-if (sort.includes("down")) {
+if (sort.includes("a-down")) {
+    console.log("reversing")
     minion_profits.reverse()
+    console.log(minion_profits)
 }
 
 
