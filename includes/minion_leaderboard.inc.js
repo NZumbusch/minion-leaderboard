@@ -86,7 +86,7 @@ function get_minion_search (inserted) {
             profit_sort_item_profit_arr += key + ": " + profit_sort[entered - 1][2][key]
             if (coun != Object.keys(profit_sort[entered - 1][2]).length) {profit_sort_item_profit_arr += ", "}  else {profit_sort_item_profit_arr += " "}
         }
-        alert("With your settings the " + entered + " minion makes " + format(profit_sort[entered - 1][1]) + " coins and " + profit_sort_item_profit_arr + "items per day and is a " + profit_sort[entered - 1][0] + " minion")
+        alert("With your settings the " + entered + " minion makes " + format(profit_sort[entered - 1][1]) + " coins and " + profit_sort_item_profit_arr + "items per day and is a " + profit_sort[entered - 1][0] + " minion.")
     }catch (exception) {
         entered = inserted
         var contin = true
