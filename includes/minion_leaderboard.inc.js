@@ -77,14 +77,24 @@ function clicked (clicked) {
 }
 
 function get_minion_search (inserted) {
+    console.log(inserted)
     try {
         entered = parseInt(inserted)
-        alert("With your settings the " + entered + " minion makes " + minion_leaderboard[entered - 1][1] + " coins per day and is a " + minion_leaderboard[entered - 1][0] + " minion.")
+        var profit_sort_item_profit_arr = ""
+        for (key in profit_sort[entered - 1][2]) {
+            profit_sort_item_profit_arr += key + ": " + profit_sort[entered - 1][2][key] + ", "
+        }
+        alert("With your settings the " + entered + " minion makes " + profit_sort[entered - 1][1] + " coins and " + profit_sort_item_profit_arr + "items per day and is a " + profit_sort[entered - 1][0] + " minion.")
     }catch (exception) {
         entered = inserted
         profit_sort.forEach(function (element, index) {
             if (element[0].toUpperCase().includes(entered.toUpperCase())) {
-                alert("With your settings the " + element[0] + " minion makes " + element[1] + " coins per day and has the position " + (index + 1) + ".")
+                console.log(element)
+                var profit_sort_item_profit_arr = ""
+                for (key in element[2]) {
+                    profit_sort_item_profit_arr += key + ": " + element[2][key] + ", "
+                }
+                alert("With your settings the " + element[0] + " minion makes " + element[1] + " coins  and " + profit_sort_item_profit_arr + "items per day and has the position " + (index + 1) + ".")
         }
         })
     }
@@ -164,6 +174,7 @@ for (var m_key in minions) {
     minion = minions[m_key]
     var profit = 0
     var diamonditemprofit = 0
+    var item_profit_l = {}
     minion["Products"].forEach(function (product, index) {
         if (!(product.Name == false)) {
             if (!"Afk" in product) {
@@ -175,12 +186,13 @@ for (var m_key in minions) {
                 item_profit += ((86400 / minion.Speed[level - 1]) * (1 + (fuel / 100))) * product.Amount * amount * (afk / 100)
             }
             profit += item_profit * prices[product.Name]
+            item_profit_l[product.Name] = Math.round(item_profit)
             profit += diamonditemprofit * prices["DIAMOND"]
         }
+        console.log(item_profit_l)
     })
-    minion_profits.push([m_key, profit])
+    minion_profits.push([m_key, profit, item_profit_l])
 }
-
 
 
 
@@ -188,8 +200,6 @@ for (var m_key in minions) {
 //Sorting minion profits for leaderboard
 
 minion_profits.sort(function(a,b){return a[1] - b[1]})
-
-console.log(minion_profits)
 
 var to_splice = []
 
@@ -232,17 +242,19 @@ var minion_leaderboard = minion_profits
 //_______________________________________________________________________________
 // Update
 
+console.log(prices)
+
 var minion_leaderboard_new = []
 
 minion_leaderboard.forEach(function (element, index) {
-    minion_leaderboard_new.push(element)
+    minion_leaderboard_new.push([element[0], element[1]])
 })
 
 minion_leaderboard_new.forEach(function (element, index) {
     if (element[1] != NaN) {
         minion_leaderboard_new[index][0] = element[0].charAt(0).toUpperCase() + element[0].slice(1);
         minion_leaderboard_new[index][1] = format(element[1])
-        minion_leaderboard_new[index] = element.join(" with ") + " coins a day."
+        minion_leaderboard_new[index] = element.join(" with ") + " coins per day."
     } 
 })
 
