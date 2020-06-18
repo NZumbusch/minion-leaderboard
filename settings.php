@@ -35,7 +35,6 @@ session_start();
                     echo '<input class="checkbox" type="checkbox" name="diamondspreading" id="diamondspreading">';
                 }
             ?>
-            <label class="label" for="api" form="settings">Do you want to use the api: </label>
             
             <h3>Filter Settings:</h3>
             <label class="label" for="min" form="settings">Minimum coins per day: </label>
