@@ -150,8 +150,9 @@ body {
 }
 
 .shown {
-    opacity: 100%;
-    display: 
+    opacity: 1;
+    display: relative;
+    height: auto;
 }
 
 @media screen and (min-width: 1000px) {

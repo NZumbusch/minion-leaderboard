@@ -293,3 +293,15 @@ document.getElementById('search-entered').onkeypress = function(e){
         get_minion_search(entered)
     }
 }
+
+var nav = document.querySelector(".nav")
+var search_box = document.getElementById("search")
+
+nav.addEventListener("click", function () {
+    console.log("click")
+    if (search_box.classList.contains("shown")) {
+        search_box.classList.remove("shown")
+    } else {
+        search_box.classList.add("shown")
+    }
+})
