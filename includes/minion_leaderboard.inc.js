@@ -80,21 +80,26 @@ function get_minion_search (inserted) {
     try {
         entered = parseInt(inserted)
         var profit_sort_item_profit_arr = ""
+        let coun = 0
         for (key in profit_sort[entered - 1][2]) {
-            profit_sort_item_profit_arr += key + ": " + profit_sort[entered - 1][2][key] + ", "
+            coun += 1
+            profit_sort_item_profit_arr += key + ": " + profit_sort[entered - 1][2][key]
+            if (coun != Object.keys(profit_sort[entered - 1][2]).length) {profit_sort_item_profit_arr += ", "}  else {profit_sort_item_profit_arr += " "}
         }
-        alert("With your settings the " + entered + " minion makes " + profit_sort[entered - 1][1] + " coins and " + profit_sort_item_profit_arr + "items per day and is a " + profit_sort[entered - 1][0] + " minion.")
+        alert("With your settings the " + entered + " minion makes " + format(profit_sort[entered - 1][1]) + " coins and " + profit_sort_item_profit_arr + "items per day and is a " + profit_sort[entered - 1][0] + " minion")
     }catch (exception) {
         entered = inserted
         var contin = true
         profit_sort.forEach(function (element, index) {
             if (element[0].toUpperCase().includes(entered.toUpperCase())) {
-                console.log(element)
+                let coun = 0
                 var profit_sort_item_profit_arr = ""
                 for (key in element[2]) {
-                    profit_sort_item_profit_arr += key + ": " + element[2][key] + ", "
+                    coun += 1
+                    profit_sort_item_profit_arr += key + ": " + element[2][key]
+                    if (coun != Object.keys(element[2]).length) {profit_sort_item_profit_arr += ", "; console.log(coun, Object.keys(element[2]))} else {profit_sort_item_profit_arr += " "}
                 }
-                if (contin) {contin = confirm("With your settings the " + element[0] + " minion makes " + element[1] + " coins  and " + profit_sort_item_profit_arr + "items per day and has the position " + (index + 1) + ".")}
+                if (contin) {contin = confirm("With your settings the " + element[0] + " minion makes " + format(element[1]) + " coins  and " + profit_sort_item_profit_arr + "items per day and has the position " + (index + 1) + ".")}
             }
         })
     }
