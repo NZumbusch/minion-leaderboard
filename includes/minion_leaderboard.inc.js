@@ -119,8 +119,9 @@ for (var key in minions) {
 }
 
 var prices_str = data.innerHTML
-var prices_str_arr = prices_str.split("\n")
+var prices_str_arr = prices_str.split("<br>")
 var prices_arr = Array()
+var prices = {}
 if (prices_str_arr[0].includes("---")) {
     console.log("Using npc prices")
     prices_str_arr.forEach(function (item, index) {
@@ -143,32 +144,17 @@ if (prices_str_arr[0].includes("---")) {
 } else {
     console.log("Using api prices")
     prices_str_arr.forEach(function (item, index) {
-        if (!(item.indexOf("<br>") >= 0)) {
-            prices_arr.push(item)
+        let price_save = item.replace("\n", "").replace(" ", "")
+        if (!price_save.includes("\n")) {
+            prices_arr.push(price_save)
         }
     })
-
-
-    var counter = false
-    var prices = {}
-
-    prices_arr.shift()
-
-    prices_arr.forEach(function (item, index) {
-        if (counter == false) {
-            counter = true
-            prices[item.replace("[", "").replace("]", "")] = 1
-        } else {
-            counter = false
-            try {
-                prices[(prices_arr[index - 1]).replace("[", "").replace("]", "")] = parseInt(item.replace("[", "").replace("]", ""), 10)
-            } catch (exception) {
-                raise(exception)
-            }
-        }
-})
+    for (var counter = 0; counter < prices_arr.length; counter += 2) {
+        prices[prices_arr[counter]] = prices_arr[counter + 1]
+    }
 }
 
+console.log(prices)
 
 
 //Calculating minion profits
@@ -208,7 +194,7 @@ console.log(minion_profits)
 var to_splice = []
 
 minion_profits.forEach(function (element, index) {
-    if (parseFloat(min) > parseFloat(element[1]) || parseFloat(max) < parseFloat(element[1])) {
+    if (parseFloat(min) > parseFloat(element[1]) || parseFloat(max) < parseFloat(element[1]) || element[1] == NaN) {
         to_splice.push(index)
     }
 })
@@ -253,9 +239,11 @@ minion_leaderboard.forEach(function (element, index) {
 })
 
 minion_leaderboard_new.forEach(function (element, index) {
-    minion_leaderboard_new[index][0] = element[0].charAt(0).toUpperCase() + element[0].slice(1);
-    minion_leaderboard_new[index][1] = format(element[1])
-    minion_leaderboard_new[index] = element.join(" with ") + " coins a day."
+    if (element[1] != NaN) {
+        minion_leaderboard_new[index][0] = element[0].charAt(0).toUpperCase() + element[0].slice(1);
+        minion_leaderboard_new[index][1] = format(element[1])
+        minion_leaderboard_new[index] = element.join(" with ") + " coins a day."
+    } 
 })
 
 var leaderboard_display_string = minion_leaderboard_new.join("<br />")
