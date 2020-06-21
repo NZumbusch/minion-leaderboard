@@ -62,7 +62,7 @@
         if (isset($_COOKIE["max"])) {
             $_SESSION["max"] = $_COOKIE["max"];
         } else {
-            $_SESSION["max"] = 1000000000;
+            $_SESSION["max"] = -1;
         }
     }
 

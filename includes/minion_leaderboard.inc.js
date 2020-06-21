@@ -60,7 +60,8 @@ var diamondspreading = document.getElementById("diamondspreading").innerHTML
 const afk = document.getElementById("afk").innerHTML
 const fuel = document.getElementById("fuel").innerHTML
 const min = document.getElementById("min").innerHTML
-const max = document.getElementById("max").innerHTML
+var  max = document.getElementById("max").innerHTML
+if (max == -1) {max = 999999999999999999999999999999999999999999999}
 const sort = document.getElementById("sort").innerHTML
 //const url = "http://infagsuso.bplaced.net/project/index.php"
 const data = document.querySelector(".api_data")

@@ -39,8 +39,8 @@ session_start();
             <h3>Filter Settings:</h3>
             <label class="label" for="min" form="settings">Minimum coins per day: </label>
             <?php echo '<input class="input" type="number" name="min" id="min" min="0" max="999999999999" value='.$_SESSION["min"].' required>'?>
-            <label class="label" for="max" form="settings">Maximum coins per day: </label>
-            <?php echo '<input class="input" type="number" name="max" id="max" min="0" max="999999999999" value='.$_SESSION["max"].' required>'?>
+            <label class="label" for="max" form="settings">Maximum coins per day (Use -1 for no filter): </label>
+            <?php echo '<input class="input" type="number" name="max" id="max" min="-1" max="999999999999" value='.$_SESSION["max"].' required>'?>
             <label class="label" for="sort" form="settings">How should the minion leaderboard be sorted?: </label>
             <p class="sort">Down alphabetically</p>
             <input type="radio" class="checkbox" name="sort" id="sort" value="a-down">
