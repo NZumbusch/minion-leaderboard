@@ -149,11 +149,71 @@ body {
     margin-bottom: 2vw;
 }
 
+.brmes {
+    background-color: rgb(255, 93, 93);
+    font-size: 3vw;
+    border: 2px solid black;
+    border-radius: 3vw;
+    width: 85vw;
+    margin: 0 auto;
+    margin-top: 2vw;
+}
+
+.brmes > h1{
+    padding: 0.5vw;
+    font-size: 3vw;
+    text-align: center;
+    font-weight: 500;
+}
+
+.brmes > div > h2 {
+    padding: 0.5vw;
+    font-size: 2vw;
+    padding-left: 0.5vw;
+    font-weight: 400;
+    padding-bottom: 1vw;
+}
+
+.brmes > div > p {
+    padding: 0.5vw;
+    font-size: 2vw;
+    padding-left: 0.5vw;
+    display: inline-block;
+    font-weight: 400;
+}
+
+.brmes > p {
+    padding: 0.5vw;
+    font-size: 2vw;
+    padding-left: 0.5vw;
+    padding-bottom: 0.5vw;
+}
+
+.brmes:hover {
+    cursor: pointer;
+}
+
+.brmes > h1 > a {
+    text-decoration: none;
+    color: black;
+}
+
+.brmes > h1 > a:hover {
+    cursor: grab;
+}
+
 .shown {
     opacity: 1;
     display: relative;
     height: auto;
 }
+
+.hidden {
+    opacity: 0;
+    height: 0;
+    display: none;
+}
+
 
 @media screen and (min-width: 1000px) {
     .rank {

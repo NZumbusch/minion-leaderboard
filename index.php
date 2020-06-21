@@ -1,4 +1,5 @@
 <?php 
+
     session_start();
 
     if (!isset($_SESSION["amount"])) {
@@ -165,6 +166,13 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+
+        <div class ="brmes" id="unsupportedbrowser" class="unsupportedbrowser">
+            <h1>You are using an unsupported browser. Please switch to <a href="https://www.mozilla.org/de/firefox/new/">Firefox</a> for the optimal Experience.</h1>
+            <div><h2>Browser you are using: <p id="usedbrowser">none</p></h2></div>
+            <p id="moreinfo">No further information.</p>
+        </div>
+
         <nav class="nav">
             <div class="container">
                 <a class="home" id="about-btn" href="index.php"><img src="src/img/Hypixel.jpeg" alt="Hypixel Logo"></a>
@@ -392,6 +400,7 @@
         ?>
 
         <script type="text/javascript" src="includes/minion_leaderboard.inc.js"></script>
+        <script type="text/javascript" src="includes/browsercheck.inc.js"></script>
         <script type="text/javascript" src="includes/about.inc.js"></script>
     </body>
 </html>
