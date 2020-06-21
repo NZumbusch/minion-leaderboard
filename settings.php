@@ -57,6 +57,7 @@ session_start();
                     echo '<label class="label" for="api" form="settings">Should the api be used? </label>';
                     echo '<input class="checkbox" type="checkbox" name="api" id="api" checked value="on">';
                 } else {
+                    echo '<label class="label" for="api" form="settings">Should the api be used? </label>';
                     echo '<input class="checkbox" type="checkbox" name="api" id="api">';
                 }
             ?>
