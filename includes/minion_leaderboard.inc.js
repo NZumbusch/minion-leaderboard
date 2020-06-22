@@ -302,8 +302,10 @@ document.getElementById('search-entered').onkeypress = function(e){
 
 var nav = document.querySelector(".nav")
 var search_box = document.getElementById("search")
+//const about = document.getElementById("about")
 
-nav.addEventListener("click", function () {
+nav.addEventListener("click", function (e) {
+    e.preventDefault()
     console.log("click")
     if (search_box.classList.contains("shown")) {
         search_box.classList.remove("shown")
@@ -311,3 +313,4 @@ nav.addEventListener("click", function () {
         search_box.classList.add("shown")
     }
 })
+

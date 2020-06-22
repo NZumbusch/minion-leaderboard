@@ -179,11 +179,21 @@
                 <p>Minion Leaderboard for Hypixel Skyblock</p>
                 <a class="settings-link" href="settings.php"><img src="https://img.icons8.com/carbon-copy/100/000000/gear.png"/></a>
             </div>
+            
+            <div class="container2"></div>
+                <div id="about" class="hidden">
+                    <h1>This website was created by Lucifer Monao.</h1>
+                    <h2>Contact: </h2>
+                    <h2>&nbsp&nbsp&nbspEmail: LuciferMonao@gmx.de</h2>
+                    <h2>&nbsp&nbsp&nbspDiscord: Creawana#9093</h2>
+                    <h2>&nbsp&nbsp&nbspIngame: msg Creawana</h2>
+                </div>
 
-            <form action="#" method="none" class="search" id="search" autocomplete="off">
-                <input class="text-input" type="text" name="search-entered" id="search-entered" placeholder="What minion do you want to search?">
-                <input class = "search-button" type="button" name="search-button" id="search-button" value="Search">
-            </form>
+                <form action="#" method="none" class="search" id="search" autocomplete="off">
+                    <input class="text-input" type="text" name="search-entered" id="search-entered" placeholder="What minion do you want to search?">
+                    <input class = "search-button" type="button" name="search-button" id="search-button" value="Search">
+                </form>
+            </div>
         </nav>
 
         <div id="settings">

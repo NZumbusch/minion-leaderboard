@@ -64,7 +64,7 @@ body {
 #leaderboard {
     margin-top: 5px;
     margin: 0 auto;
-    width: 50%;
+    width: 60%;
     padding: 10px 10px;
     background-color: rgb(163, 240, 175);
     text-align: left;
@@ -82,6 +82,14 @@ body {
     top: 0.2vw;
     left: 1%;
     width: 100%;
+}
+
+#about {
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+    padding: 10px 10px;
+    background-color: rgb(129, 129, 129);
 }
 
 .search {
@@ -104,6 +112,10 @@ body {
     display: relative;
     opacity: 1 ;
     height: auto;
+}
+
+.nav:hover div div {
+    border-radius: 0;
 }
 
 #settings-successfull {
@@ -129,7 +141,7 @@ body {
 #settings {
     background-color: rgb(158, 158, 196);
     margin: 0 auto;
-    width: 50%;
+    width: 60%;
     padding: 10px 10px;
     border-radius: 10px 10px 0px 0px;
     margin-top: 14%;
@@ -149,6 +161,10 @@ body {
     margin: 0.3vw auto;
     font-size: 1.7vw;
     padding: 0.01vw;
+}
+
+.rounded {
+    border-radius: 0 0 1vw 1vw;
 }
 
 .rank {
