@@ -261,7 +261,7 @@ minion_leaderboard_new.forEach(function (element, index) {
     if (element[1] != NaN) {
         minion_leaderboard_new[index][0] = element[0].charAt(0).toUpperCase() + element[0].slice(1);
         minion_leaderboard_new[index][1] = format(element[1])
-        minion_leaderboard_new[index] = element.join(" with ") + " coins per day."
+        minion_leaderboard_new[index] = (index + 1) + ". " + element.join(" with ") + " coins per day."
     } 
 })
 
