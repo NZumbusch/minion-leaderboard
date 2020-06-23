@@ -74,6 +74,13 @@
         }
     }
 
+    if (!isset($_SESSION["duration"])) {
+        if (isset($_COOKIE["duration"])) {
+            $_SESSION["duration"] = $_COOKIE["duration"];
+        } else {
+            $_SESSION["duration"] = 24;
+        }
+    }
 
 
 
@@ -148,6 +155,14 @@
             setcookie('sort', $_SESSION["sort"], time() + 86400 * 30, "/");
         }
     }
+
+    if (!isset($_COOKIE["duration"])) {
+        setcookie('duration', $_SESSION["duration"], time() + 86400 * 30, "/");
+    } else {
+        if ($_COOKIE["duration"] != $_SESSION["duration"]) {
+            setcookie('duration', $_SESSION["duration"], time() + 86400 * 30, "/");
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -184,9 +199,9 @@
                 <div id="about" class="hidden">
                     <h1>This website was created by Lucifer Monao.</h1>
                     <h2>Contact: </h2>
-                    <h2>&nbsp&nbsp&nbspEmail: LuciferMonao@gmx.de</h2>
+                    <h2>&nbsp&nbsp&nbspEmail: <a class="Maillink" href= "mailto:Lucifermonao@gmx.com">Lucifermonao@gmx.de</a></h2>
                     <h2>&nbsp&nbsp&nbspDiscord: Creawana#9093</h2>
-                    <h2>&nbsp&nbsp&nbspIngame: msg Creawana</h2>
+                    <h2>&nbsp&nbsp&nbspIngame: Creawana</h2>
                 </div>
 
                 <form action="#" method="none" class="search" id="search" autocomplete="off">
@@ -205,6 +220,7 @@
                 <div class="setting"><p class="settings-text">Diamondspreadings:</p><h3 class="settings-value" id="diamondspreading"><?php echo $_SESSION["diamondspreading"]?></h3></div>
                 <div class="setting"><p class="settings-text">Min:</p><h3 class="settings-value" id="min"><?php echo $_SESSION["min"]?></h3></div>
                 <div class="setting"><p class="settings-text">Max:</p><h3 class="settings-value" id="max"><?php echo $_SESSION["max"]?></h3></div>
+                <div class="setting"><p class="settings-text">Duration:</p><h3 class="settings-value" id="duration"><?php echo $_SESSION["duration"]?></h3></div>
                 <div class="setting"><p class="settings-text">Sort:</p><h3 class="settings-value" id="sort"><?php echo $_SESSION["sort"]?></h3></div>
                 <div class="setting"><p class="settings-text">Api:</p><h3 class="settings-value" id="api"><?php echo $_SESSION["api"]?></h3></div>
             </a>
@@ -407,6 +423,10 @@
             $data_str = implode("\n", $data);
         }
         echo "<div class='api_data'>$data_str</div>";
+        ?>
+
+        <?php 
+        require "footer.php";
         ?>
 
         <script type="text/javascript" src="includes/minion_leaderboard.inc.js"></script>

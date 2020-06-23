@@ -65,6 +65,11 @@ if (isset($_GET["sort"])) {
     $_COOKIE["sort"] = $_SESSION["sort"];
 }
 
+if (isset($_GET["duration"])) {
+    $_SESSION["duration"] = $_GET["duration"];
+    $_COOKIE["duration"] = $_SESSION["duration"];
+}
+
 echo "Heading";
 header("LOCATION: ../index.php?redirect=settings");
 exit();

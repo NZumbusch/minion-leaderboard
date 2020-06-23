@@ -41,6 +41,8 @@ session_start();
             <?php echo '<input class="input" type="number" name="min" id="min" min="0" max="999999999999" value='.$_SESSION["min"].' required>'?>
             <label class="label" for="max" form="settings">Maximum coins per day (Use -1 for no filter): </label>
             <?php echo '<input class="input" type="number" name="max" id="max" min="-1" max="999999999999" value='.$_SESSION["max"].' required>'?>
+            <label class="label" for="duration" form="settings">How many hours will the minions run: </label>
+            <?php echo '<input class="input" type="number" name="duration" id="duration" min="0" max="8760" value='.$_SESSION["duration"].' required>'?>
             <label class="label" for="sort" form="settings">How should the minion leaderboard be sorted?: </label>
             <p class="sort">Down alphabetically</p>
             <input type="radio" class="checkbox" name="sort" id="sort" value="a-down">
