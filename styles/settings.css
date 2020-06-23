@@ -7,9 +7,8 @@
 
 body {
     background-color: black;
-    background-image: url("../src/img/Mountain-2.jpeg");
-    background-size:cover;
-    background-repeat: no-repeat;
+    background-image: url("../src/img/gradient.jpeg");
+    background-size: 100% 100%;
 }
 
 form {

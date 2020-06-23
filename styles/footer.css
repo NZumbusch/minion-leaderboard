@@ -1,0 +1,35 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    background-color: rgb(129, 129, 129);
+    width: 100%;
+    height: 2.5vw;
+}
+
+.Github > img {
+    padding: 0.15vw;
+    max-width: 2.2vw;
+}
+
+.Discord > img {
+    padding: 0.05vw;
+    max-width: 2.4vw;
+}
+
+.Mail > img {
+    padding: 0.05vw;
+    max-width: 2.4vw;
+    width: 2.8vw;
+    background-color: rgb(129, 129, 129)
+}
+
+.footer > p {
+    float: right;
+    padding: 0.5vw;
+    font-size: 1.1vw;
+}
+
+.footer > p > a {
+    text-decoration: none;
+    color: black;
+}
