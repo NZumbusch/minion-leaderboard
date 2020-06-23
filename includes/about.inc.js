@@ -9,7 +9,7 @@ function main () {
     } else {
         search_box.classList.add("shown")
     }
-    setTimeout(function (){about.classList.remove("shown"); about.classList.add("hidden")}, 3000)
+    setTimeout(function (){about.classList.remove("shown"); about.classList.add("hidden")}, 6000)
 }
 
 
