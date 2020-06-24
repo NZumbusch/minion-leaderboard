@@ -1,6 +1,6 @@
-var messagebox = document.getElementById("unsupportedbrowser")
-var browser_used = document.getElementById("usedbrowser")
-var furtherinfo = document.getElementById("moreinfo")
+let mesbox = document.getElementById("messagebox")
+let browser_used = document.getElementById("usedbrowser")
+let furtherinfo = document.getElementById("moreinfo")
 
 var browser = ""
 
@@ -37,20 +37,16 @@ if (isSafari) {browser = "Safari"}
 if (isIE) {browser = "Internet Explorer"}
 if (isEdge) {browser = "Edge"}
 
-if (browser == "Firefox") {
-    document.getElementById("unsupportedbrowser").classList.add("hidden")
-} else if  (isChrome) {
-    messagebox.classList.add("shown")
-    browser_used.innerHTML = browser
-    furtherinfo.innerHTML = "As your browser is based on Chrome, some sorting algorithms wont function properly."
+if (!(window.location.search.substr(1).includes("browser"))) {
+    console.log("Appending browser to path")
+    if (window.location.search.substr(1).length > 1) {
+        window.location = window.location + "&" + "browser=" + browser
+    }
+    //window.location = "index.php?browser=" + browser
 }
 
 
-
-
-
-
-messagebox.addEventListener("click", function () {
-    messagebox.classList.remove("shown")
-    messagebox.classList.add("hidden")
+mesbox.addEventListener("click", function () {
+    mesbox.classList.remove("shown")
+    mesbox.classList.add("hidden")
 })

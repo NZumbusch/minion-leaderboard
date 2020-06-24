@@ -182,34 +182,13 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div class ="brmes" id="unsupportedbrowser" class="unsupportedbrowser">
-            <h1>You are using an unsupported browser. Please switch to <a href="https://www.mozilla.org/de/firefox/new/">Firefox</a> for the optimal Experience.</h1>
-            <div><h2>Browser you are using: <p id="usedbrowser">none</p></h2></div>
-            <p id="moreinfo">No further information.</p>
-        </div>
+        <?php
+        require "message.php";
+        ?>
 
-        <nav class="nav">
-            <div class="container">
-                <a class="home" id="about-btn" href="index.php"><img src="src/img/Hypixel.jpeg" alt="Hypixel Logo"></a>
-                <p>Minion Leaderboard for Hypixel Skyblock</p>
-                <a class="settings-link" href="settings.php"><img src="https://img.icons8.com/carbon-copy/100/000000/gear.png"/></a>
-            </div>
-            
-            <div class="container2"></div>
-                <div id="about" class="hidden">
-                    <h1>This website was created by Lucifer Monao.</h1>
-                    <h2>Contact: </h2>
-                    <h2>&nbsp&nbsp&nbspEmail: <a class="Maillink" href= "mailto:Lucifermonao@gmx.com">Lucifermonao@gmx.de</a></h2>
-                    <h2>&nbsp&nbsp&nbspDiscord: Creawana#9093</h2>
-                    <h2>&nbsp&nbsp&nbspIngame: Creawana</h2>
-                </div>
-
-                <form action="#" method="none" class="search" id="search" autocomplete="off">
-                    <input class="text-input" type="text" name="search-entered" id="search-entered" placeholder="What minion do you want to search?">
-                    <input class = "search-button" type="button" name="search-button" id="search-button" value="Search">
-                </form>
-            </div>
-        </nav>
+        <?php 
+        require "header.php";
+        ?>
 
         <div id="settings">
             <a href="settings.php">
@@ -224,7 +203,6 @@
                 <div class="setting"><p class="settings-text">Sort:</p><h3 class="settings-value" id="sort"><?php echo $_SESSION["sort"]?></h3></div>
                 <div class="setting"><p class="settings-text">Api:</p><h3 class="settings-value" id="api"><?php echo $_SESSION["api"]?></h3></div>
             </a>
-            <?php if (isset($_GET["redirect"]) && $_GET["redirect"] == "settings") {echo '<h3 id="settings-successfull">Successfully changed settings...</h3>';} ?>
         </div>
 
         <div>
@@ -430,7 +408,6 @@
         ?>
 
         <script type="text/javascript" src="includes/minion_leaderboard.inc.js"></script>
-        <script type="text/javascript" src="includes/browsercheck.inc.js"></script>
         <script type="text/javascript" src="includes/about.inc.js"></script>
     </body>
 </html>
