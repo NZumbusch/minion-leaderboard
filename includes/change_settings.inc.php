@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+
+$_SESSION["semesread"] = "false";
+
+
 if (!isset($_GET["submit"])) {
     header("LOCATION: ../index.php");
     exit();
