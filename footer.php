@@ -11,8 +11,8 @@
 
             <a class="Github" href="https://github.com/LuciferMonao/minion-leaderboard"><img src="src/img/github.png" alt="Github"></a>
             <a class="Discord" href="https://discord.com"><img src="src/img/discord.png" alt="Discord"></a>
-            <a class="Mail" href="mailto:Lucifermonao@gmx.com"><img src="https://img.icons8.com/windows/32/000000/email-open.png"/></a>
-            <p>&copy 2020, <a href= "mailto:Lucifermonao@gmx.com">Lucifer Monao</a>, Some Rights Reserved</p>
+            <a class="Mail" href="mailto:Lucifermonao@gmx.de"><img src="https://img.icons8.com/windows/32/000000/email-open.png"/></a>
+            <p>&copy 2020, <a href= "mailto:Lucifermonao@gmx.de">Lucifer Monao</a>, Some Rights Reserved</p>
         </div>
     </body>
 </html>
