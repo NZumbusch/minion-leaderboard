@@ -182,6 +182,8 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+        <a href="../../index.php"><img src="https://img.icons8.com/cotton/64/000000/home--v1.png"/></a>
+
         <?php
         require "message.php";
         ?>
