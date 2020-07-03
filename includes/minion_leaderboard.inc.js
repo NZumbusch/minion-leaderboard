@@ -66,13 +66,23 @@ var duration = document.getElementById("duration").innerHTML
 const sort = document.getElementById("sort").innerHTML
 //const url = "http://infagsuso.bplaced.net/project/index.php"
 const data = document.querySelector(".api_data")
-
+var log = ""
 
 
 
 //_______________________________________________________________________________
 // Functions
 
+var a_log = function (text) {
+    var currentdate = new Date(); 
+    var datetime = currentdate.getDate() + ":"
+                + (currentdate.getMonth()+1)  + ":" 
+                + currentdate.getFullYear() + "@"  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+    log += "/- " + datetime + " ~ " + text
+}
 
 function clicked (clicked) {
     get_minion_search(minion_leaderboard[clicked][0])
@@ -88,8 +98,11 @@ function get_minion_search (inserted) {
             profit_sort_item_profit_arr += key + ": " + profit_sort[entered - 1][2][key]
             if (coun != Object.keys(profit_sort[entered - 1][2]).length) {profit_sort_item_profit_arr += ", "}  else {profit_sort_item_profit_arr += " "}
         }
+        a_log("Issuing search for " + inserted + " using number search.")
         alert("With your settings the " + entered + " minion makes " + format(profit_sort[entered - 1][1]) + " coins and " + profit_sort_item_profit_arr + "items and is a " + profit_sort[entered - 1][0] + " minion.")
+        a_log("Alerted minion (" + element[0] + "), entered " + contin)
     }catch (exception) {
+        a_log("Issuing search for " + inserted + " using name search.")
         entered = inserted
         var contin = true
         profit_sort.forEach(function (element, index) {
@@ -102,6 +115,7 @@ function get_minion_search (inserted) {
                     if (coun != Object.keys(element[2]).length) {profit_sort_item_profit_arr += ", "; console.log(coun, Object.keys(element[2]))} else {profit_sort_item_profit_arr += " "}
                 }
                 if (contin) {contin = confirm("With your settings the " + element[0] + " minion makes " + format(element[1]) + " coins  and " + profit_sort_item_profit_arr + "items and has the position " + (index + 1) + ".")}
+                a_log("Alerted minion (" + element[0] + "), entered " + contin)
             }
         })
     }
@@ -296,6 +310,7 @@ try {
 
 search_button.addEventListener(type="click", function () {
     var entered = search_entered.value
+    a_log("Click on searchbox. Initializing search. entered = " + entered)
     get_minion_search(entered)
 })
 
@@ -305,20 +320,8 @@ document.getElementById('search-entered').onkeypress = function(e){
     if (keyCode == '13'){
         e.preventDefault();
         var entered = search_entered.value
+        a_log("Enter pressed in searchbox. Initializing search.  entered = " + entered)
         get_minion_search(entered)
     }
 }
-
-var nav = document.querySelector(".nav")
-var search_box = document.getElementById("search")
-//const about = document.getElementById("about")
-
-nav.addEventListener("click", function (e) {
-    console.log("click")
-    if (search_box.classList.contains("shown")) {
-        search_box.classList.remove("shown")
-    } else {
-        search_box.classList.add("shown")
-    }
-})
 

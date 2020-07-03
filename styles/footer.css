@@ -33,3 +33,18 @@
     text-decoration: none;
     color: black;
 }
+
+.logs {
+    padding-top: 0.1vw;
+    float: left;
+}
+
+.logs > img {
+    max-width: 2.2vw;
+}
+
+.shown {
+    opacity: 1;
+    display: relative;
+    height: auto;
+}

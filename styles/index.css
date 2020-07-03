@@ -97,6 +97,19 @@ body {
     display: none;
 }
 
+body > a > img {
+    position: fixed;
+    top: 46%;
+    left: 0.5vw;
+    background-color: white;
+    max-width: 4vw;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+body > a > img:hover {
+    cursor: pointer;
+}
 
 @media screen and (min-width: 1000px) {
     .rank {
