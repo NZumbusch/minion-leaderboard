@@ -1,3 +1,5 @@
+<?php session_start()?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,12 +11,19 @@
         <link rel="stylesheet" href="styles/log.css">
     </head>
     <body>
-        <div>
-            <h1 id="back">Return</h1>
+        <div id="btn">
+            <h1 id="back">Return</h1><h1 id="clear">Clear</h1>
         </div>
         <h1 id="log_data">
             <?php
-                echo $_GET["log"];
+                if (isset($_GET["log"])) {
+                    if (!isset($_SESSION["log"])) {
+                        $_SESSION["log"] = "";
+                    }
+                    $_SESSION["log"] .= $_GET["log"];
+                    header("LOCATION:log.php");
+                }
+                echo $_SESSION["log"];
             ?>
         </h1>
         <script src="includes/log.js"></script>
