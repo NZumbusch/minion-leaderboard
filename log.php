@@ -16,6 +16,10 @@
         </div>
         <h1 id="log_data">
             <?php
+                if (isset($_GET["clear"]) and $_GET["clear"] == "true") {
+                    $_SESSION["log"] = "";
+                    header("LOCATION:log.php");
+                }
                 if (isset($_GET["log"])) {
                     if (!isset($_SESSION["log"])) {
                         $_SESSION["log"] = "";

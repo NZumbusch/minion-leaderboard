@@ -21,3 +21,8 @@ document.getElementById("back").addEventListener("click", function (e) {
     e.preventDefault()
     window.location = "index.php"
 })
+
+document.getElementById("clear").addEventListener("click", function (e) {
+    e.preventDefault()
+    window.location = "log.php?clear=true"
+})
