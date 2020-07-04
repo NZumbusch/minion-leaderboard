@@ -25,11 +25,17 @@
                         $_SESSION["log"] = "";
                     }
                     $_SESSION["log"] .= $_GET["log"];
+                    if (!isset($_COOKIE["log"])) {
+                        setcookie('log', $_SESSION["log"], time() + 86400 * 30, "/");
+                    } else {
+                        setcookie('log', $_SESSION["log"], time() + 86400 * 30, "/");
+                    }
                     header("LOCATION:log.php");
                 }
                 echo $_SESSION["log"];
             ?>
         </h1>
+        <?php require "footer.php" ?>
         <script src="includes/log.js"></script>
     </body>
 </html>

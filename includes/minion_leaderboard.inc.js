@@ -100,7 +100,7 @@ function get_minion_search (inserted) {
         }
         a_log("Issuing search for " + inserted + " using number search.")
         alert("With your settings the " + entered + " minion makes " + format(profit_sort[entered - 1][1]) + " coins and " + profit_sort_item_profit_arr + "items and is a " + profit_sort[entered - 1][0] + " minion.")
-        a_log("Alerted minion (" + element[0] + "), entered " + contin)
+        a_log("Alerted minion (" + element[0] + "), entered " + contin + ", message: " + "With your settings the " + entered + " minion makes " + format(profit_sort[entered - 1][1]) + " coins and " + profit_sort_item_profit_arr + "items and is a " + profit_sort[entered - 1][0] + " minion.")
     }catch (exception) {
         a_log("Issuing search for " + inserted + " using name search.")
         entered = inserted
@@ -115,7 +115,7 @@ function get_minion_search (inserted) {
                     if (coun != Object.keys(element[2]).length) {profit_sort_item_profit_arr += ", "; console.log(coun, Object.keys(element[2]))} else {profit_sort_item_profit_arr += " "}
                 }
                 if (contin) {contin = confirm("With your settings the " + element[0] + " minion makes " + format(element[1]) + " coins  and " + profit_sort_item_profit_arr + "items and has the position " + (index + 1) + ".")}
-                a_log("Alerted minion (" + element[0] + "), entered " + contin)
+                a_log("Alerted minion (" + element[0] + "), entered " + contin + ", message: " + "With your settings the " + element[0] + " minion makes " + format(element[1]) + " coins  and " + profit_sort_item_profit_arr + "items and has the position " + (index + 1) + ".")
             }
         })
     }
